@@ -1,0 +1,80 @@
+.TH "mscommon.h" 3 "Tue May 13 2014" "Version 2.10.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mscommon.h \- 
+.PP
+mediastreamer2 \fBmscommon\&.h\fP include file  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ortp/logging\&.h>\fP
+.br
+\fC#include <ortp/port\&.h>\fP
+.br
+\fC#include <ortp/str_utils\&.h>\fP
+.br
+\fC#include <ortp/payloadtype\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBms_init\fP()   \fBms_base_init\fP(), \fBms_voip_init\fP(), \fBms_plugins_init\fP()"
+.br
+.ti -1c
+.RI "#define \fBms_exit\fP()   \fBms_voip_exit\fP(), \fBms_base_exit\fP()"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBms_base_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_voip_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_plugins_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_set_plugins_dir\fP (const char *path)"
+.br
+.ti -1c
+.RI "int \fBms_load_plugins\fP (const char *directory)"
+.br
+.ti -1c
+.RI "void \fBms_base_exit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_voip_exit\fP (void)"
+.br
+.ti -1c
+.RI "int \fBms_get_payload_max_size\fP ()"
+.br
+.ti -1c
+.RI "int \fBms_discover_mtu\fP (const char *destination_host)"
+.br
+.ti -1c
+.RI "void \fBms_set_mtu\fP (int mtu)"
+.br
+.ti -1c
+.RI "int \fBms_get_mtu\fP (void)"
+.br
+.ti -1c
+.RI "void \fBms_set_cpu_count\fP (unsigned int c)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mediastreamer2 \fBmscommon\&.h\fP include file 
+
+This file provide the API needed to initialize and reset the mediastreamer2 library\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code\&.

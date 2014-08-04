@@ -1,0 +1,721 @@
+\section{Filter A\-P\-I -\/ Manage mediastreamer2 filters}
+\label{group__mediastreamer2__filter}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+
+
+Filter A\-P\-I to manage mediastreamer2 filters.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}(\-\_\-id\-\_\-, \-\_\-count\-\_\-, \-\_\-argtype\-\_\-)~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-I\-D(\-\_\-id\-\_\-,\-\_\-count\-\_\-,sizeof(\-\_\-argtype\-\_\-))
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G}(\-\_\-id\-\_\-, \-\_\-count\-\_\-)~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-I\-D(\-\_\-id\-\_\-,\-\_\-count\-\_\-,0)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(0,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(1,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(2,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(3,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(7,const char)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(11,int)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ {\bf M\-S\-Filter\-Func} )(struct \-\_\-\-M\-S\-Filter $\ast$f)
+\item 
+typedef int($\ast$ {\bf M\-S\-Filter\-Method\-Func} )(struct \-\_\-\-M\-S\-Filter $\ast$f, void $\ast$arg)
+\item 
+typedef void($\ast$ {\bf M\-S\-Filter\-Notify\-Func} )(void $\ast$userdata, struct \-\_\-\-M\-S\-Filter $\ast$f, unsigned int id, void $\ast$arg)
+\item 
+typedef enum {\bf \-\_\-\-M\-S\-Filter\-Interface\-Id} {\bf M\-S\-Filter\-Interface\-Id}
+\item 
+typedef struct \-\_\-\-M\-S\-Filter\-Method {\bf M\-S\-Filter\-Method}
+\item 
+typedef enum {\bf \-\_\-\-M\-S\-Filter\-Category} {\bf M\-S\-Filter\-Category}
+\item 
+typedef enum {\bf \-\_\-\-M\-S\-Filter\-Flags} {\bf M\-S\-Filter\-Flags}
+\item 
+typedef struct \-\_\-\-M\-S\-Filter\-Desc {\bf M\-S\-Filter\-Desc}
+\item 
+typedef struct \-\_\-\-M\-S\-Filter {\bf M\-S\-Filter}
+\item 
+typedef struct \-\_\-\-M\-S\-Connection\-Point {\bf M\-S\-Connection\-Point}
+\item 
+typedef struct \-\_\-\-M\-S\-Connection\-Helper {\bf M\-S\-Connection\-Helper}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \-\_\-\-M\-S\-Filter\-Interface\-Id} \{ , \\*
+{\bf M\-S\-Filter\-Player\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Recorder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Video\-Display\-Interface}
+, \\*
+{\bf M\-S\-Filter\-Video\-Decoder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Video\-Capture\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Audio\-Decoder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Video\-Encoder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Audio\-Capture\-Interface}
+, \\*
+{\bf M\-S\-Filter\-Audio\-Encoder\-Interface}
+ \}
+\item 
+enum {\bf \-\_\-\-M\-S\-Filter\-Category} \{ \\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-O\-T\-H\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-I\-N\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-I\-N\-G\-\_\-\-R\-E\-N\-D\-E\-R\-E\-R}
+ \}
+\item 
+enum {\bf \-\_\-\-M\-S\-Filter\-Flags} \{ {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-S\-\_\-\-P\-U\-M\-P} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ms\-\_\-filter\-\_\-register} ({\bf M\-S\-Filter\-Desc} $\ast$desc)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-encoder} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-decoder} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name} (const char $\ast$filter\-\_\-name)
+\item 
+M\-S\-List $\ast$ {\bf ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface} ({\bf M\-S\-Filter\-Interface\-Id} id)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-create\-\_\-encoder} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-create\-\_\-decoder} (const char $\ast$mime)
+\item 
+bool\-\_\-t {\bf ms\-\_\-filter\-\_\-codec\-\_\-supported} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-new} (M\-S\-Filter\-Id id)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name} (const char $\ast$name)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc} ({\bf M\-S\-Filter\-Desc} $\ast$desc)
+\item 
+int {\bf ms\-\_\-filter\-\_\-link} ({\bf M\-S\-Filter} $\ast$f1, int pin1, {\bf M\-S\-Filter} $\ast$f2, int pin2)
+\item 
+int {\bf ms\-\_\-filter\-\_\-unlink} ({\bf M\-S\-Filter} $\ast$f1, int pin1, {\bf M\-S\-Filter} $\ast$f2, int pin2)
+\item 
+int {\bf ms\-\_\-filter\-\_\-call\-\_\-method} ({\bf M\-S\-Filter} $\ast$f, unsigned int id, void $\ast$arg)
+\item 
+int {\bf ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg} ({\bf M\-S\-Filter} $\ast$f, unsigned int id)
+\item 
+bool\-\_\-t {\bf ms\-\_\-filter\-\_\-has\-\_\-method} ({\bf M\-S\-Filter} $\ast$f, unsigned int id)
+\item 
+void {\bf ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback} ({\bf M\-S\-Filter} $\ast$f, {\bf M\-S\-Filter\-Notify\-Func} fn, void $\ast$userdata)
+\item 
+M\-S\-Filter\-Id {\bf ms\-\_\-filter\-\_\-get\-\_\-id} ({\bf M\-S\-Filter} $\ast$f)
+\item 
+M\-S\-List $\ast$ {\bf ms\-\_\-filter\-\_\-find\-\_\-neighbours} ({\bf M\-S\-Filter} $\ast$me)
+\item 
+void {\bf ms\-\_\-filter\-\_\-destroy} ({\bf M\-S\-Filter} $\ast$f)
+\item 
+void {\bf ms\-\_\-connection\-\_\-helper\-\_\-start} ({\bf M\-S\-Connection\-Helper} $\ast$h)
+\item 
+int {\bf ms\-\_\-connection\-\_\-helper\-\_\-link} ({\bf M\-S\-Connection\-Helper} $\ast$h, {\bf M\-S\-Filter} $\ast$f, int inpin, int outpin)
+\begin{DoxyCompactList}\small\item\em Enter a M\-S\-Filter to be connected into the M\-S\-Connection\-Helper object. \end{DoxyCompactList}\item 
+int {\bf ms\-\_\-connection\-\_\-helper\-\_\-unlink} ({\bf M\-S\-Connection\-Helper} $\ast$h, {\bf M\-S\-Filter} $\ast$f, int inpin, int outpin)\label{group__mediastreamer2__filter_ga4edec12d0853c3773cf89783d4e6415e}
+
+\begin{DoxyCompactList}\small\item\em Enter a M\-S\-Filter to be disconnected into the M\-S\-Connection\-Helper object. Process exactly the same way as \doxyref{ms\-\_\-connection\-\_\-helper\-\_\-link()}{p.}{group__mediastreamer2__filter_ga83c60765bfda1674f419c6f2686274b9} but calls \doxyref{ms\-\_\-filter\-\_\-unlink()}{p.}{group__mediastreamer2__filter_ga41d3d0194e8e925097a8e663a544de1b} on the entered filters. \end{DoxyCompactList}\item 
+void {\bf ms\-\_\-filter\-\_\-enable\-\_\-statistics} (bool\-\_\-t enabled)\label{group__mediastreamer2__filter_gaa5cd1d9de53863e3151f25e3c5f303a8}
+
+\begin{DoxyCompactList}\small\item\em Enable processing time measurements statistics for filters. \end{DoxyCompactList}\item 
+void {\bf ms\-\_\-filter\-\_\-reset\-\_\-statistics} (void)\label{group__mediastreamer2__filter_gad1ceb3036597d4745d51e8e797236513}
+
+\begin{DoxyCompactList}\small\item\em Reset processing time statistics for filters. \end{DoxyCompactList}\item 
+const M\-S\-List $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-statistics} (void)\label{group__mediastreamer2__filter_gaf30c049e9901ad50dca99c2573cade7e}
+
+\begin{DoxyCompactList}\small\item\em Retrieves statistics for running filters. Returns a list of M\-S\-Filter\-Stats. \end{DoxyCompactList}\item 
+void {\bf ms\-\_\-filter\-\_\-log\-\_\-statistics} (void)\label{group__mediastreamer2__filter_ga3c1a6d38d8243d9cff8d5a0be32ab346}
+
+\begin{DoxyCompactList}\small\item\em Logs runtime statistics for running filters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter A\-P\-I to manage mediastreamer2 filters. This section documents the A\-P\-I needed to create, link, unlink, find and destroy filters.
+
+It also provides definitions if you wish to implement your own filters. 
+
+\subsection{Macro Definition Documentation}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-id\-\_\-, }
+\item[{}]{\-\_\-count\-\_\-, }
+\item[{}]{\-\_\-argtype\-\_\-}
+\end{DoxyParamCaption}
+)~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-I\-D(\-\_\-id\-\_\-,\-\_\-count\-\_\-,sizeof(\-\_\-argtype\-\_\-))}\label{group__mediastreamer2__filter_gaf270a9da34a396452034f3a5210dbbff}
+Macro to create a method id, unique per filter. First argument shall be the filter's I\-D (M\-S\-Filter\-Id) or interface I\-D (M\-S\-Filter\-Interface\-Id). Second argument is the method index within the context of the filter. It should start from 0 and increment for each new method. Third argument is the argument type of the method, for example \char`\"{}int\char`\"{}, \char`\"{}float\char`\"{} or any structure. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-id\-\_\-, }
+\item[{}]{\-\_\-count\-\_\-}
+\end{DoxyParamCaption}
+)~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-I\-D(\-\_\-id\-\_\-,\-\_\-count\-\_\-,0)}\label{group__mediastreamer2__filter_gab70bff42cbdb8e2e6efbb53982819656}
+Same as M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D, but for method that do not take any argument. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(0,int)}\label{group__mediastreamer2__filter_ga72923806f1bca717d45e9b96423f1ca8}
+some M\-S\-Filter base generic methods\-: Set filter output/input sampling frequency in hertz \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(1,int)}\label{group__mediastreamer2__filter_ga7d62679ccdbc094834398bb33363cf2a}
+Get filter output/input sampling frequency in hertz \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(2,int)}\label{group__mediastreamer2__filter_gad2b1e2f40765ba33021479cf74552a5c}
+Set filter output network bitrate in bit per seconds, this value include I\-P+\-U\-D\-P+\-R\-T\-P overhead \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(3,int)}\label{group__mediastreamer2__filter_gaa284d8f3dca19ce0e802f00d2b42e0de}
+Get filter output network bitrate in bit per seconds, this value include I\-P+\-U\-D\-P+\-R\-T\-P overhead \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(7,const char)}\label{group__mediastreamer2__filter_ga388f3fb78097eace39ee777a6814c2db}
+Set codec dependent attributes as taken from the S\-D\-P \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y}}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(11,int)}\label{group__mediastreamer2__filter_ga46ea587992ab8417d4fd2219b0cfcdbf}
+Filters can return their latency in milliseconds (if known) using this method\-: 
+
+\subsection{Typedef Documentation}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Func@{M\-S\-Filter\-Func}}
+\index{M\-S\-Filter\-Func@{M\-S\-Filter\-Func}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Func}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Filter\-Func}\label{group__mediastreamer2__filter_gadb946b6054101f84fef23e2544124f3a}
+Structure for filter's methods (init, preprocess, process, postprocess, uninit). \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Method\-Func@{M\-S\-Filter\-Method\-Func}}
+\index{M\-S\-Filter\-Method\-Func@{M\-S\-Filter\-Method\-Func}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Method\-Func}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Filter\-Method\-Func}\label{group__mediastreamer2__filter_ga394990ba18f3830d39d9e9392a50e4f0}
+Structure for filter's methods used to set filter's options. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Notify\-Func@{M\-S\-Filter\-Notify\-Func}}
+\index{M\-S\-Filter\-Notify\-Func@{M\-S\-Filter\-Notify\-Func}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Notify\-Func}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Filter\-Notify\-Func}\label{group__mediastreamer2__filter_gadfed3d54fd085b015839d2b72c991a45}
+Structure for filter's methods used as a callback to notify events. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Interface\-Id@{M\-S\-Filter\-Interface\-Id}}
+\index{M\-S\-Filter\-Interface\-Id@{M\-S\-Filter\-Interface\-Id}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Interface\-Id}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf \-\_\-\-M\-S\-Filter\-Interface\-Id} {\bf M\-S\-Filter\-Interface\-Id}}\label{group__mediastreamer2__filter_ga7dec48ba67eb0aae74d8051ab2716741}
+Interface I\-Ds, used to generate method names (see M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D macro). \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Method@{M\-S\-Filter\-Method}}
+\index{M\-S\-Filter\-Method@{M\-S\-Filter\-Method}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Method}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Method}}\label{group__mediastreamer2__filter_ga753e865f48dbeeb7a6d08d8c0f399809}
+Structure for holding filter's methods to set filter's options. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Category@{M\-S\-Filter\-Category}}
+\index{M\-S\-Filter\-Category@{M\-S\-Filter\-Category}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Category}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Category}}\label{group__mediastreamer2__filter_ga70996836a931217af2bd7985d6e78e7d}
+Structure to describe filter's category. 
+\begin{DoxyPre}
+    MS\_FILTER\_OTHER
+    MS\_FILTER\_ENCODER
+    MS\_FILTER\_DECODER
+    MS\_FILTER\_ENCODING\_CAPTURER
+    MS\_FILTER\_DECODING\_RENDERER
+\end{DoxyPre}
+ \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Flags@{M\-S\-Filter\-Flags}}
+\index{M\-S\-Filter\-Flags@{M\-S\-Filter\-Flags}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf \-\_\-\-M\-S\-Filter\-Flags} {\bf M\-S\-Filter\-Flags}}\label{group__mediastreamer2__filter_gabb2f73b067c2842f10a4cb834f8310c0}
+Filter's flags controlling special behaviours. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Desc@{M\-S\-Filter\-Desc}}
+\index{M\-S\-Filter\-Desc@{M\-S\-Filter\-Desc}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter\-Desc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Desc}}\label{group__mediastreamer2__filter_ga810878e2d7d2e0da867558e55286b97f}
+Structure for filter's description. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter@{M\-S\-Filter}}
+\index{M\-S\-Filter@{M\-S\-Filter}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter}}\label{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726}
+Structure of filter's object. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Connection\-Point@{M\-S\-Connection\-Point}}
+\index{M\-S\-Connection\-Point@{M\-S\-Connection\-Point}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Connection\-Point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Connection\-Point}}\label{group__mediastreamer2__filter_ga22125fb86e93b3d69804a2394b6a93e3}
+Structure that represents a connection point of a M\-S\-Filter \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Connection\-Helper@{M\-S\-Connection\-Helper}}
+\index{M\-S\-Connection\-Helper@{M\-S\-Connection\-Helper}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{M\-S\-Connection\-Helper}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Connection\-Helper}}\label{group__mediastreamer2__filter_ga1cd9894460ace57adf4c86fd98f51e18}
+Structure that holds data when using the ms\-\_\-connection\-\_\-helper\-\_\-$\ast$ functions. 
+
+\subsection{Enumeration Type Documentation}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!\-\_\-\-M\-S\-Filter\-Interface\-Id@{\-\_\-\-M\-S\-Filter\-Interface\-Id}}
+\index{\-\_\-\-M\-S\-Filter\-Interface\-Id@{\-\_\-\-M\-S\-Filter\-Interface\-Id}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{\-\_\-\-M\-S\-Filter\-Interface\-Id}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-M\-S\-Filter\-Interface\-Id}}\label{group__mediastreamer2__filter_ga9c11cbec7bf152f42ad3180d49738dc8}
+Interface I\-Ds, used to generate method names (see M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D macro). The purpose of these interfaces is to allow different filter implementations to share the same methods, by implementing the method definitions for these interfaces. For example every video encoder implementation would need a method to request the generation of a key frame. Instead of having each implementation defining its own method to do this, each implementation can just implement the M\-S\-\_\-\-V\-I\-D\-E\-O\-\_\-\-E\-N\-C\-O\-D\-E\-R\-\_\-\-R\-E\-Q\-\_\-\-V\-F\-U method of the M\-S\-Filter\-Video\-Encoder\-Interface. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-S\-Filter\-Player\-Interface@{M\-S\-Filter\-Player\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Player\-Interface@{M\-S\-Filter\-Player\-Interface}}\item[{\em 
+M\-S\-Filter\-Player\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a211b1fdcebde2715e42d90bf68790ddd}
+}]Player interface, used to control playing of files. \index{M\-S\-Filter\-Recorder\-Interface@{M\-S\-Filter\-Recorder\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Recorder\-Interface@{M\-S\-Filter\-Recorder\-Interface}}\item[{\em 
+M\-S\-Filter\-Recorder\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8af1d7575ac8616878f2cfb2e4b772ea12}
+}]Recorder interface, used to control recording of stream into files. \index{M\-S\-Filter\-Video\-Display\-Interface@{M\-S\-Filter\-Video\-Display\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Video\-Display\-Interface@{M\-S\-Filter\-Video\-Display\-Interface}}\item[{\em 
+M\-S\-Filter\-Video\-Display\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a93f6cf81003753384f2524c2438d8acf}
+}]Video display interface, used to control the rendering of raw pictures onscreen. \index{M\-S\-Filter\-Video\-Decoder\-Interface@{M\-S\-Filter\-Video\-Decoder\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Video\-Decoder\-Interface@{M\-S\-Filter\-Video\-Decoder\-Interface}}\item[{\em 
+M\-S\-Filter\-Video\-Decoder\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8ae1da43310f43bb7d894cf133bb738db5}
+}]Echo canceller interface, used to control echo canceller implementations. Video decoder interface \index{M\-S\-Filter\-Video\-Capture\-Interface@{M\-S\-Filter\-Video\-Capture\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Video\-Capture\-Interface@{M\-S\-Filter\-Video\-Capture\-Interface}}\item[{\em 
+M\-S\-Filter\-Video\-Capture\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8aa763a9aeb259c0630ed7a186aca6cbf3}
+}]Video capture interface \index{M\-S\-Filter\-Audio\-Decoder\-Interface@{M\-S\-Filter\-Audio\-Decoder\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Audio\-Decoder\-Interface@{M\-S\-Filter\-Audio\-Decoder\-Interface}}\item[{\em 
+M\-S\-Filter\-Audio\-Decoder\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a83562947d7c873cf082480076a2b775f}
+}]Audio Decoder interface \index{M\-S\-Filter\-Video\-Encoder\-Interface@{M\-S\-Filter\-Video\-Encoder\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Video\-Encoder\-Interface@{M\-S\-Filter\-Video\-Encoder\-Interface}}\item[{\em 
+M\-S\-Filter\-Video\-Encoder\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a27281df23e4c07a504d5390094906a76}
+}]Video encoder interface \index{M\-S\-Filter\-Audio\-Capture\-Interface@{M\-S\-Filter\-Audio\-Capture\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Audio\-Capture\-Interface@{M\-S\-Filter\-Audio\-Capture\-Interface}}\item[{\em 
+M\-S\-Filter\-Audio\-Capture\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8aa1ab8bcda5beb0ba1e1660b63a145cb6}
+}]Interface for audio capture filters \index{M\-S\-Filter\-Audio\-Encoder\-Interface@{M\-S\-Filter\-Audio\-Encoder\-Interface}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-Filter\-Audio\-Encoder\-Interface@{M\-S\-Filter\-Audio\-Encoder\-Interface}}\item[{\em 
+M\-S\-Filter\-Audio\-Encoder\-Interface\label{group__mediastreamer2__filter_gga9c11cbec7bf152f42ad3180d49738dc8a25a2ea76bbda02c3e066d65f9a34cf0e}
+}]Interface for audio playback filters. Video encoder interface \end{description}
+\end{Desc}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!\-\_\-\-M\-S\-Filter\-Category@{\-\_\-\-M\-S\-Filter\-Category}}
+\index{\-\_\-\-M\-S\-Filter\-Category@{\-\_\-\-M\-S\-Filter\-Category}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{\-\_\-\-M\-S\-Filter\-Category}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-M\-S\-Filter\-Category}}\label{group__mediastreamer2__filter_gad5279a551f5f10f3b80887f19b345101}
+Filter's category \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-O\-T\-H\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-O\-T\-H\-E\-R}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-O\-T\-H\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-O\-T\-H\-E\-R}}\item[{\em 
+M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-O\-T\-H\-E\-R\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a5540387caed9528094e108e2b3ba14c9}
+}]others \index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R}}\item[{\em 
+M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a77401d653240a6f21afb6b98dddd0604}
+}]used by encoders \index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R}}\item[{\em 
+M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a113bbb21c331c2eb2174165bf0135ca6}
+}]used by decoders \index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-I\-N\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-I\-N\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-R}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-I\-N\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-I\-N\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-R}}\item[{\em 
+M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-I\-N\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-R\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101ab31c47a7cac19c9f1020c6bb19f59d67}
+}]used by capture filters that perform encoding \index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-I\-N\-G\-\_\-\-R\-E\-N\-D\-E\-R\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-I\-N\-G\-\_\-\-R\-E\-N\-D\-E\-R\-E\-R}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-I\-N\-G\-\_\-\-R\-E\-N\-D\-E\-R\-E\-R@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-I\-N\-G\-\_\-\-R\-E\-N\-D\-E\-R\-E\-R}}\item[{\em 
+M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-I\-N\-G\-\_\-\-R\-E\-N\-D\-E\-R\-E\-R\label{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a7418c82f489df1cfefccc5602f3edd33}
+}]used by render filters that perform decoding \end{description}
+\end{Desc}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!\-\_\-\-M\-S\-Filter\-Flags@{\-\_\-\-M\-S\-Filter\-Flags}}
+\index{\-\_\-\-M\-S\-Filter\-Flags@{\-\_\-\-M\-S\-Filter\-Flags}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{\-\_\-\-M\-S\-Filter\-Flags}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-M\-S\-Filter\-Flags}}\label{group__mediastreamer2__filter_ga49cfb013b0377793bed35373d4287797}
+Filter's flags controlling special behaviours. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-S\-\_\-\-P\-U\-M\-P@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-S\-\_\-\-P\-U\-M\-P}!Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-S\-\_\-\-P\-U\-M\-P@{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-S\-\_\-\-P\-U\-M\-P}}\item[{\em 
+M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-S\-\_\-\-P\-U\-M\-P\label{group__mediastreamer2__filter_gga49cfb013b0377793bed35373d4287797a2c57b18a2a75986335d2a5cdad120ecd}
+}]The filter must be called in process function every tick. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-register@{ms\-\_\-filter\-\_\-register}}
+\index{ms\-\_\-filter\-\_\-register@{ms\-\_\-filter\-\_\-register}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-register}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-filter\-\_\-register (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter\-Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gae0aca13a45886a793eb3fc4b87e26bd5}
+Register a filter description. (plugins use only!)
+
+When you build your own plugin, this method will add the encoder or decoder to the internal list of supported codec. Then, this plugin can be used transparently from the application.
+
+ms\-\_\-filter\-\_\-get\-\_\-encoder, ms\-\_\-filter\-\_\-get\-\_\-decoder, ms\-\_\-filter\-\_\-create\-\_\-encoder, ms\-\_\-filter\-\_\-create\-\_\-decoder and ms\-\_\-filter\-\_\-codec\-\_\-supported can then be used as if the codec was internally. supported.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & a filter description. \\
+\hline
+\end{DoxyParams}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer@{ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer}}
+\index{ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer@{ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Desc}$\ast$ ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mime}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga23be7a3d61d9e6e882fba6bb752a5d08}
+Retrieve capture filter that supports encoding to codec name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mime} & A string indicating the codec.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter\-Desc if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer@{ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer}}
+\index{ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer@{ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Desc}$\ast$ ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mime}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga3f7aacd21ad1e3b4118ecc1f27391028}
+Retrieve render filter that supports decoding to codec name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mime} & A string indicating the codec.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter\-Desc if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-get\-\_\-encoder@{ms\-\_\-filter\-\_\-get\-\_\-encoder}}
+\index{ms\-\_\-filter\-\_\-get\-\_\-encoder@{ms\-\_\-filter\-\_\-get\-\_\-encoder}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-get\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Desc}$\ast$ ms\-\_\-filter\-\_\-get\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mime}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga77dc40340542242d56e743d42acdf968}
+Retrieve encoders according to codec name.
+
+Internal supported codecs\-: P\-C\-M\-U, P\-C\-M\-A, speex, gsm Existing Public plugins\-: i\-L\-B\-C
+
+
+\begin{DoxyParams}{Parameters}
+{\em mime} & A string indicating the codec.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter\-Desc if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-get\-\_\-decoder@{ms\-\_\-filter\-\_\-get\-\_\-decoder}}
+\index{ms\-\_\-filter\-\_\-get\-\_\-decoder@{ms\-\_\-filter\-\_\-get\-\_\-decoder}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-get\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Desc}$\ast$ ms\-\_\-filter\-\_\-get\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mime}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga8c2541925c3ee2ff202ac6b7ae0c4234}
+Retrieve decoders according to codec name.
+
+Internal supported codecs\-: P\-C\-M\-U, P\-C\-M\-A, speex, gsm Existing Public plugins\-: i\-L\-B\-C
+
+
+\begin{DoxyParams}{Parameters}
+{\em mime} & A string indicating the codec.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter\-Desc if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name@{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name}}
+\index{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name@{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter\-Desc}$\ast$ ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filter\-\_\-name}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga560b155071a66f86a0ff9820d94193bc}
+Lookup a mediastreamer2 filter using its name. If found, the descriptor (M\-S\-Filter\-Desc) is returned. This descriptor can be used to instanciate the filter using \doxyref{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc()}{p.}{group__mediastreamer2__filter_gae9dd4fbd4b6c436643d8fccb5faf3314} This function can be useful to query the presence of a filter loaded as a plugin, for example.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The filter name. \\
+\hline
+\end{DoxyParams}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface@{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface}}
+\index{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface@{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-List$\ast$ ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter\-Interface\-Id}}]{id}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga51cebf71c12e220387349e02ef8cbdfa}
+Returns a list of filter descriptions implementing a given interface. The list itself must be freed by the caller of this function, but not the M\-S\-Filter\-Desc pointed by the list elements. 
+\begin{DoxyParams}{Parameters}
+{\em id} & a filter interface id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a newly allocated M\-S\-List of \doxyref{M\-S\-Filter\-Desc}{p.}{group__mediastreamer2__filter_ga810878e2d7d2e0da867558e55286b97f}. 
+\end{DoxyReturn}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-create\-\_\-encoder@{ms\-\_\-filter\-\_\-create\-\_\-encoder}}
+\index{ms\-\_\-filter\-\_\-create\-\_\-encoder@{ms\-\_\-filter\-\_\-create\-\_\-encoder}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-create\-\_\-encoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter}$\ast$ ms\-\_\-filter\-\_\-create\-\_\-encoder (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mime}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gae03d01988c40a72003e99568ea7934cb}
+Create encoder filter according to codec name.
+
+Internal supported codecs\-: P\-C\-M\-U, P\-C\-M\-A, speex, gsm Existing Public plugins\-: i\-L\-B\-C
+
+
+\begin{DoxyParams}{Parameters}
+{\em mime} & A string indicating the codec.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-create\-\_\-decoder@{ms\-\_\-filter\-\_\-create\-\_\-decoder}}
+\index{ms\-\_\-filter\-\_\-create\-\_\-decoder@{ms\-\_\-filter\-\_\-create\-\_\-decoder}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-create\-\_\-decoder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter}$\ast$ ms\-\_\-filter\-\_\-create\-\_\-decoder (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mime}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga2633a5a5f875b8d6b69302cea414bead}
+Create decoder filter according to codec name.
+
+Internal supported codecs\-: P\-C\-M\-U, P\-C\-M\-A, speex, gsm Existing Public plugins\-: i\-L\-B\-C
+
+
+\begin{DoxyParams}{Parameters}
+{\em mime} & A string indicating the codec.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-codec\-\_\-supported@{ms\-\_\-filter\-\_\-codec\-\_\-supported}}
+\index{ms\-\_\-filter\-\_\-codec\-\_\-supported@{ms\-\_\-filter\-\_\-codec\-\_\-supported}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-codec\-\_\-supported}]{\setlength{\rightskip}{0pt plus 5cm}bool\-\_\-t ms\-\_\-filter\-\_\-codec\-\_\-supported (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{mime}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gaf30accd2bde57be143ceb542b980e60b}
+Check if a encode or decode filter exists for a codec name.
+
+Internal supported codecs\-: P\-C\-M\-U, P\-C\-M\-A, speex, gsm Existing Public plugins\-: i\-L\-B\-C
+
+
+\begin{DoxyParams}{Parameters}
+{\em mime} & A string indicating the codec.\\
+\hline
+\end{DoxyParams}
+Returns\-: T\-R\-U\-E if successfull, F\-A\-L\-S\-E otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-new@{ms\-\_\-filter\-\_\-new}}
+\index{ms\-\_\-filter\-\_\-new@{ms\-\_\-filter\-\_\-new}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter}$\ast$ ms\-\_\-filter\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{M\-S\-Filter\-Id}]{id}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gad02a4e10eebb5664f6a1573a6d2f20d8}
+Create decoder filter according to a filter's M\-S\-Filter\-Id.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & A M\-S\-Filter\-Id identifier for the filter.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name@{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name}}
+\index{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name@{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter}$\ast$ ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga3a4ba144a0dd1e269c9c3d9b7c0977d9}
+Create decoder filter according to a filter's name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & A name for the filter.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc@{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc}}
+\index{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc@{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Filter}$\ast$ ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter\-Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gae9dd4fbd4b6c436643d8fccb5faf3314}
+Create decoder filter according to a filter's description.
+
+The primary use is to create your own filter's in your application and avoid registration inside mediastreamer2.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & A M\-S\-Filter\-Desc for the filter.\\
+\hline
+\end{DoxyParams}
+Returns\-: a M\-S\-Filter if successfull, N\-U\-L\-L otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-link@{ms\-\_\-filter\-\_\-link}}
+\index{ms\-\_\-filter\-\_\-link@{ms\-\_\-filter\-\_\-link}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-filter\-\_\-link (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f1, }
+\item[{int}]{pin1, }
+\item[{{\bf M\-S\-Filter} $\ast$}]{f2, }
+\item[{int}]{pin2}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga01f8d0ad29999cfadfbc32cd5ab94d4a}
+Link one O\-U\-T\-P\-U\-T pin from a filter to an I\-N\-P\-U\-T pin of another filter.
+
+All data coming from the O\-U\-T\-P\-U\-T pin of one filter will be distributed to the I\-N\-P\-U\-T pin of the second filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & A M\-S\-Filter object containing the O\-U\-T\-P\-U\-T pin \\
+\hline
+{\em pin1} & An index of an O\-U\-T\-P\-U\-T pin. \\
+\hline
+{\em f2} & A M\-S\-Filter object containing the I\-N\-P\-U\-T pin \\
+\hline
+{\em pin2} & An index of an I\-N\-P\-U\-T pin.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if sucessful, -\/1 otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-unlink@{ms\-\_\-filter\-\_\-unlink}}
+\index{ms\-\_\-filter\-\_\-unlink@{ms\-\_\-filter\-\_\-unlink}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-unlink}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-filter\-\_\-unlink (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f1, }
+\item[{int}]{pin1, }
+\item[{{\bf M\-S\-Filter} $\ast$}]{f2, }
+\item[{int}]{pin2}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga41d3d0194e8e925097a8e663a544de1b}
+Unlink one O\-U\-T\-P\-U\-T pin from a filter to an I\-N\-P\-U\-T pin of another filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & A M\-S\-Filter object containing the O\-U\-T\-P\-U\-T pin \\
+\hline
+{\em pin1} & An index of an O\-U\-T\-P\-U\-T pin. \\
+\hline
+{\em f2} & A M\-S\-Filter object containing the I\-N\-P\-U\-T pin \\
+\hline
+{\em pin2} & An index of an I\-N\-P\-U\-T pin.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if sucessful, -\/1 otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-call\-\_\-method@{ms\-\_\-filter\-\_\-call\-\_\-method}}
+\index{ms\-\_\-filter\-\_\-call\-\_\-method@{ms\-\_\-filter\-\_\-call\-\_\-method}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-call\-\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-filter\-\_\-call\-\_\-method (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f, }
+\item[{unsigned int}]{id, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga97908c1b1ebaea3e7107817f819ba13f}
+Call a filter's method to set or get options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & A M\-S\-Filter object. \\
+\hline
+{\em id} & A private filter I\-D for the option. \\
+\hline
+{\em arg} & A private user data for the filter.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if successfull, -\/1 otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg@{ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg}}
+\index{ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg@{ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f, }
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gaeaa47dcaf40ba95e5de14a26656d1171}
+Call a filter's method to set options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & A M\-S\-Filter object. \\
+\hline
+{\em id} & A method I\-D.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if successfull, -\/1 otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-has\-\_\-method@{ms\-\_\-filter\-\_\-has\-\_\-method}}
+\index{ms\-\_\-filter\-\_\-has\-\_\-method@{ms\-\_\-filter\-\_\-has\-\_\-method}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-has\-\_\-method}]{\setlength{\rightskip}{0pt plus 5cm}bool\-\_\-t ms\-\_\-filter\-\_\-has\-\_\-method (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f, }
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga351119c469b2863de3eecba55f81c092}
+Returns whether the filter implements a given method
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & A M\-S\-Filter object. \\
+\hline
+{\em id} & A method I\-D.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if successfull, -\/1 otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback@{ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback}}
+\index{ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback@{ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f, }
+\item[{{\bf M\-S\-Filter\-Notify\-Func}}]{fn, }
+\item[{void $\ast$}]{userdata}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga1692286190b02a02bcf73e9807900033}
+Set a callback on filter's to be informed of private filter's event. This callback is called from the filter's M\-S\-Ticker, unless a global event queue is created to receive all filter's notification asynchronously. See ms\-\_\-event\-\_\-queue\-\_\-new() for details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & A M\-S\-Filter object. \\
+\hline
+{\em fn} & A M\-S\-Filter\-Notify\-Func that will be called. \\
+\hline
+{\em userdata} & A pointer to private data. \\
+\hline
+\end{DoxyParams}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-get\-\_\-id@{ms\-\_\-filter\-\_\-get\-\_\-id}}
+\index{ms\-\_\-filter\-\_\-get\-\_\-id@{ms\-\_\-filter\-\_\-get\-\_\-id}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-get\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Filter\-Id ms\-\_\-filter\-\_\-get\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga5cc35d6a372ddc68c4fd477aa11b9973}
+Get M\-S\-Filter\-Id's filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & A M\-S\-Filter object.\\
+\hline
+\end{DoxyParams}
+Returns\-: M\-S\-Filter\-Id if successfull, -\/1 otherwise. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-find\-\_\-neighbours@{ms\-\_\-filter\-\_\-find\-\_\-neighbours}}
+\index{ms\-\_\-filter\-\_\-find\-\_\-neighbours@{ms\-\_\-filter\-\_\-find\-\_\-neighbours}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-find\-\_\-neighbours}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-List$\ast$ ms\-\_\-filter\-\_\-find\-\_\-neighbours (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{me}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga8fe486491f396fa9d75ec30c15602a38}
+Obtain the list of current filter's neighbours, ie filters that are part of same graph.
+
+Returns\-: a M\-S\-List of M\-S\-Filter, that needs to be freed by the caller when no more needed. \index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-filter\-\_\-destroy@{ms\-\_\-filter\-\_\-destroy}}
+\index{ms\-\_\-filter\-\_\-destroy@{ms\-\_\-filter\-\_\-destroy}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-filter\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-filter\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gac0119f28333037b191a709f9347b972f}
+Destroy a filter object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & A M\-S\-Filter object. \\
+\hline
+\end{DoxyParams}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-connection\-\_\-helper\-\_\-start@{ms\-\_\-connection\-\_\-helper\-\_\-start}}
+\index{ms\-\_\-connection\-\_\-helper\-\_\-start@{ms\-\_\-connection\-\_\-helper\-\_\-start}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-connection\-\_\-helper\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-connection\-\_\-helper\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Connection\-Helper} $\ast$}]{h}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_gacbb0a4a826a9a35f935928495adf9352}
+Initialize a M\-S\-Connection\-Helper.
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & A M\-S\-Connection\-Helper, usually (but not necessarily) on stack \\
+\hline
+\end{DoxyParams}
+\index{Filter A\-P\-I -\/ Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}!ms\-\_\-connection\-\_\-helper\-\_\-link@{ms\-\_\-connection\-\_\-helper\-\_\-link}}
+\index{ms\-\_\-connection\-\_\-helper\-\_\-link@{ms\-\_\-connection\-\_\-helper\-\_\-link}!Filter API - Manage mediastreamer2 filters@{Filter A\-P\-I -\/ Manage mediastreamer2 filters}}
+\subsubsection[{ms\-\_\-connection\-\_\-helper\-\_\-link}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-connection\-\_\-helper\-\_\-link (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Connection\-Helper} $\ast$}]{h, }
+\item[{{\bf M\-S\-Filter} $\ast$}]{f, }
+\item[{int}]{inpin, }
+\item[{int}]{outpin}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__filter_ga83c60765bfda1674f419c6f2686274b9}
+
+
+Enter a M\-S\-Filter to be connected into the M\-S\-Connection\-Helper object. 
+
+This functions enters a M\-S\-Filter to be connected into the M\-S\-Connection\-Helper object and connects it to the last entered if not the first one. The M\-S\-Connection\-Helper is useful to reduce the amount of code necessary to create graphs in case the connections are made in an ordered manner and some filters are present conditionally in graphs. For example, instead of writing 
+\begin{DoxyCode}
+ms_filter_link(f1,0,f2,1);
+ms_filter_link(f2,0,f3,0);
+ms_filter_link(f3,1,f4,0);
+\end{DoxyCode}
+ You can write\-: 
+\begin{DoxyCode}
+MSConnectionHelper h;
+ms_connection_helper_start(&h);
+ms_connection_helper_link(&h,f1,-1,0);
+ms_connection_helper_link(&h,f2,1,0);
+ms_connection_helper_link(&h,f3,0,1);
+ms_connection_helper_link(&h,f4,0,-1);
+\end{DoxyCode}
+ Which is a bit longer to write here, but now imagine f2 needs to be present in the graph only in certain conditions\-: in the first case you have rewrite the two first lines, in the second case you just need to replace the fourth line by\-: 
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (my\_condition) ms_connection_helper_link(&h,f2,1,0);
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & a connection helper \\
+\hline
+{\em f} & a M\-S\-Filter \\
+\hline
+{\em inpin} & an input pin number with which the M\-S\-Filter needs to connect to previously entered M\-S\-Filter \\
+\hline
+{\em outpin} & an output pin number with which the M\-S\-Filter needs to be connected to the next entered M\-S\-Filter\\
+\hline
+\end{DoxyParams}
+Returns\-: the return value of \doxyref{ms\-\_\-filter\-\_\-link()}{p.}{group__mediastreamer2__filter_ga01f8d0ad29999cfadfbc32cd5ab94d4a} that is called internally to this function. 

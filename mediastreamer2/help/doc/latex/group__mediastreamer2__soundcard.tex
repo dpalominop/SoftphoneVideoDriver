@@ -1,0 +1,80 @@
+\section{Sound Card A\-P\-I -\/ Manage audio capture/play filters}
+\label{group__mediastreamer2__soundcard}\index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+
+
+Sound Card A\-P\-I to manage audio capture/play filters.  
+
+
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Sound Card Manager A\-P\-I}
+\item 
+{\bf Sound Card Filter A\-P\-I}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D}~(0)
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E}~(1)
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K}~(1$<$$<$1)
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R}~(1$<$$<$2)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \-\_\-\-M\-S\-Snd\-Card\-Manager {\bf M\-S\-Snd\-Card\-Manager}
+\item 
+typedef enum \-\_\-\-M\-S\-Snd\-Card\-Mixer\-Elem {\bf M\-S\-Snd\-Card\-Mixer\-Elem}
+\item 
+typedef enum \-\_\-\-M\-S\-Snd\-Card\-Capture {\bf M\-S\-Snd\-Card\-Capture}
+\item 
+typedef enum \-\_\-\-M\-S\-Snd\-Card\-Control\-Elem {\bf M\-S\-Snd\-Card\-Control\-Elem}
+\item 
+typedef struct \-\_\-\-M\-S\-Snd\-Card\-Desc {\bf M\-S\-Snd\-Card\-Desc}
+\item 
+typedef struct \-\_\-\-M\-S\-Snd\-Card {\bf M\-S\-Snd\-Card}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sound Card A\-P\-I to manage audio capture/play filters. 
+
+\subsection{Macro Definition Documentation}
+\index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D}}
+\index{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D~(0)}\label{group__mediastreamer2__soundcard_gac4bc71c63b265b48dcac662c702b78f7}
+This soundcard is disabled. \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E}}
+\index{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E~(1)}\label{group__mediastreamer2__soundcard_ga51c264d8a16a35d2e5950dc244fdd512}
+This sound card can capture sound \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K}}
+\index{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K~(1$<$$<$1)}\label{group__mediastreamer2__soundcard_ga435e796062e03cc939625ce17a463803}
+This sound card can playback sound \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R}}
+\index{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R@{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R~(1$<$$<$2)}\label{group__mediastreamer2__soundcard_ga0128bc630cb6882fbefe4dcf1d3753b0}
+This sound card has built-\/in echo cancellation 
+
+\subsection{Typedef Documentation}
+\index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-Snd\-Card\-Manager@{M\-S\-Snd\-Card\-Manager}}
+\index{M\-S\-Snd\-Card\-Manager@{M\-S\-Snd\-Card\-Manager}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-Snd\-Card\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Snd\-Card\-Manager}}\label{group__mediastreamer2__soundcard_ga9949d5c2eb2aa3e12513ef37315d352a}
+Structure for sound card manager object. \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-Snd\-Card\-Mixer\-Elem@{M\-S\-Snd\-Card\-Mixer\-Elem}}
+\index{M\-S\-Snd\-Card\-Mixer\-Elem@{M\-S\-Snd\-Card\-Mixer\-Elem}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-Snd\-Card\-Mixer\-Elem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Snd\-Card\-Mixer\-Elem}}\label{group__mediastreamer2__soundcard_gaff4e6267aca49e2fe22d90422ad3606e}
+Structure for sound card mixer values. \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-Snd\-Card\-Capture@{M\-S\-Snd\-Card\-Capture}}
+\index{M\-S\-Snd\-Card\-Capture@{M\-S\-Snd\-Card\-Capture}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-Snd\-Card\-Capture}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Snd\-Card\-Capture}}\label{group__mediastreamer2__soundcard_gabd73b986390f63127ce9144031de2ff5}
+Structure for sound card capture source values. \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-Snd\-Card\-Control\-Elem@{M\-S\-Snd\-Card\-Control\-Elem}}
+\index{M\-S\-Snd\-Card\-Control\-Elem@{M\-S\-Snd\-Card\-Control\-Elem}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-Snd\-Card\-Control\-Elem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Snd\-Card\-Control\-Elem}}\label{group__mediastreamer2__soundcard_gaa4323b16a5a783ba0f40002389c53b2d}
+Structure for sound card mixer values. \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-Snd\-Card\-Desc@{M\-S\-Snd\-Card\-Desc}}
+\index{M\-S\-Snd\-Card\-Desc@{M\-S\-Snd\-Card\-Desc}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-Snd\-Card\-Desc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Snd\-Card\-Desc}}\label{group__mediastreamer2__soundcard_gaed4c8098f2092c63f77cd1b284789cf2}
+Structure for sound card description object. \index{Sound Card A\-P\-I -\/ Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}!M\-S\-Snd\-Card@{M\-S\-Snd\-Card}}
+\index{M\-S\-Snd\-Card@{M\-S\-Snd\-Card}!Sound Card API - Manage audio capture/play filters@{Sound Card A\-P\-I -\/ Manage audio capture/play filters}}
+\subsubsection[{M\-S\-Snd\-Card}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Snd\-Card}}\label{group__mediastreamer2__soundcard_ga183435ffafe51b0a11e13326041f9bf8}
+Structure for sound card object. 

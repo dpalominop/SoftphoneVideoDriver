@@ -1,0 +1,326 @@
+\section{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}
+\label{group__audio__stream__api}\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+
+
+Audio streaming A\-P\-I -\/ Easily run audio streams from soundcard or wav files to R\-T\-P.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \-\_\-\-Audio\-Stream {\bf Audio\-Stream}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf media\-\_\-stream\-\_\-set\-\_\-target\-\_\-network\-\_\-bitrate} (Media\-Stream $\ast$stream, int target\-\_\-bitrate)
+\item 
+int {\bf media\-\_\-stream\-\_\-get\-\_\-target\-\_\-network\-\_\-bitrate} (const Media\-Stream $\ast$stream)
+\item 
+float {\bf media\-\_\-stream\-\_\-get\-\_\-up\-\_\-bw} (const Media\-Stream $\ast$stream)
+\item 
+float {\bf media\-\_\-stream\-\_\-get\-\_\-down\-\_\-bw} (const Media\-Stream $\ast$stream)
+\item 
+int {\bf audio\-\_\-stream\-\_\-start\-\_\-full} ({\bf Audio\-Stream} $\ast$stream, Rtp\-Profile $\ast$profile, const char $\ast$rem\-\_\-rtp\-\_\-ip, int rem\-\_\-rtp\-\_\-port, const char $\ast$rem\-\_\-rtcp\-\_\-ip, int rem\-\_\-rtcp\-\_\-port, int payload, int jitt\-\_\-comp, const char $\ast$infile, const char $\ast$outfile, {\bf M\-S\-Snd\-Card} $\ast$playcard, {\bf M\-S\-Snd\-Card} $\ast$captcard, bool\-\_\-t use\-\_\-ec)
+\item 
+{\bf Audio\-Stream} $\ast$ {\bf audio\-\_\-stream\-\_\-new} (int loc\-\_\-rtp\-\_\-port, int loc\-\_\-rtcp\-\_\-port, bool\-\_\-t ipv6)
+\item 
+int {\bf audio\-\_\-stream\-\_\-start\-\_\-now} ({\bf Audio\-Stream} $\ast$stream, Rtp\-Profile $\ast$prof, const char $\ast$remip, int remport, int rem\-\_\-rtcp\-\_\-port, int payload\-\_\-type, int jitt\-\_\-comp, {\bf M\-S\-Snd\-Card} $\ast$playcard, {\bf M\-S\-Snd\-Card} $\ast$captcard, bool\-\_\-t echo\-\_\-cancel)
+\item 
+void {\bf audio\-\_\-stream\-\_\-iterate} ({\bf Audio\-Stream} $\ast$stream)
+\item 
+void {\bf audio\-\_\-stream\-\_\-enable\-\_\-echo\-\_\-limiter} ({\bf Audio\-Stream} $\ast$stream, Echo\-Limiter\-Type type)
+\item 
+void {\bf audio\-\_\-stream\-\_\-enable\-\_\-gain\-\_\-control} ({\bf Audio\-Stream} $\ast$stream, bool\-\_\-t val)
+\item 
+void {\bf audio\-\_\-stream\-\_\-enable\-\_\-automatic\-\_\-gain\-\_\-control} ({\bf Audio\-Stream} $\ast$stream, bool\-\_\-t val)
+\item 
+void {\bf audio\-\_\-stream\-\_\-set\-\_\-echo\-\_\-canceller\-\_\-params} ({\bf Audio\-Stream} $\ast$st, int tail\-\_\-len\-\_\-ms, int delay\-\_\-ms, int framesize)
+\item 
+void {\bf audio\-\_\-stream\-\_\-mute\-\_\-rtp} ({\bf Audio\-Stream} $\ast$stream, bool\-\_\-t val)
+\item 
+void {\bf audio\-\_\-stream\-\_\-enable\-\_\-noise\-\_\-gate} ({\bf Audio\-Stream} $\ast$stream, bool\-\_\-t val)
+\item 
+void {\bf audio\-\_\-stream\-\_\-enable\-\_\-equalizer} ({\bf Audio\-Stream} $\ast$stream, bool\-\_\-t enabled)
+\item 
+void {\bf audio\-\_\-stream\-\_\-stop} ({\bf Audio\-Stream} $\ast$stream)
+\item 
+int {\bf audio\-\_\-stream\-\_\-send\-\_\-dtmf} ({\bf Audio\-Stream} $\ast$stream, char dtmf)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Audio streaming A\-P\-I -\/ Easily run audio streams from soundcard or wav files to R\-T\-P. 
+
+\subsection{Typedef Documentation}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!Audio\-Stream@{Audio\-Stream}}
+\index{Audio\-Stream@{Audio\-Stream}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{Audio\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \-\_\-\-Audio\-Stream {\bf Audio\-Stream}}\label{group__audio__stream__api_ga9e8d8f2dbcc208a83179961032fc76b4}
+The Audio\-Stream holds all resources to create and run typical Vo\-I\-P audiostream. 
+
+\subsection{Function Documentation}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!media\-\_\-stream\-\_\-set\-\_\-target\-\_\-network\-\_\-bitrate@{media\-\_\-stream\-\_\-set\-\_\-target\-\_\-network\-\_\-bitrate}}
+\index{media\-\_\-stream\-\_\-set\-\_\-target\-\_\-network\-\_\-bitrate@{media\-\_\-stream\-\_\-set\-\_\-target\-\_\-network\-\_\-bitrate}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{media\-\_\-stream\-\_\-set\-\_\-target\-\_\-network\-\_\-bitrate}]{\setlength{\rightskip}{0pt plus 5cm}int media\-\_\-stream\-\_\-set\-\_\-target\-\_\-network\-\_\-bitrate (
+\begin{DoxyParamCaption}
+\item[{Media\-Stream $\ast$}]{stream, }
+\item[{int}]{target\-\_\-bitrate}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga41e923ab37d1680a342ed838846ac05f}
+\par
+For multirate codecs like O\-P\-U\-S, encoder output target bitrate must be set. \par
+Encoder will compute output codec bitrate from this value. \par
+ default value is the value corresponding the rtp Payload\-Type 
+\begin{DoxyParams}{Parameters}
+{\em stream} & stream to apply parameter on \\
+\hline
+{\em target\-\_\-bitrate} & in bit per seconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succeed 
+\end{DoxyReturn}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!media\-\_\-stream\-\_\-get\-\_\-target\-\_\-network\-\_\-bitrate@{media\-\_\-stream\-\_\-get\-\_\-target\-\_\-network\-\_\-bitrate}}
+\index{media\-\_\-stream\-\_\-get\-\_\-target\-\_\-network\-\_\-bitrate@{media\-\_\-stream\-\_\-get\-\_\-target\-\_\-network\-\_\-bitrate}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{media\-\_\-stream\-\_\-get\-\_\-target\-\_\-network\-\_\-bitrate}]{\setlength{\rightskip}{0pt plus 5cm}int media\-\_\-stream\-\_\-get\-\_\-target\-\_\-network\-\_\-bitrate (
+\begin{DoxyParamCaption}
+\item[{const Media\-Stream $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga55069fa14e5e87a4e819c691d264068f}
+get the stream target bitrate. 
+\begin{DoxyParams}{Parameters}
+{\em stream} & stream to apply parameter on \\
+\hline
+{\em target\-\_\-bitrate} & in bit per seconds \\
+\hline
+\end{DoxyParams}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!media\-\_\-stream\-\_\-get\-\_\-up\-\_\-bw@{media\-\_\-stream\-\_\-get\-\_\-up\-\_\-bw}}
+\index{media\-\_\-stream\-\_\-get\-\_\-up\-\_\-bw@{media\-\_\-stream\-\_\-get\-\_\-up\-\_\-bw}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{media\-\_\-stream\-\_\-get\-\_\-up\-\_\-bw}]{\setlength{\rightskip}{0pt plus 5cm}float media\-\_\-stream\-\_\-get\-\_\-up\-\_\-bw (
+\begin{DoxyParamCaption}
+\item[{const Media\-Stream $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga36f4ed0e014333e1432aadb8c84b644c}
+get current stream upload bitrate. Value is updated every seconds 
+\begin{DoxyParams}{Parameters}
+{\em stream} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bitrate in bit per seconds 
+\end{DoxyReturn}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!media\-\_\-stream\-\_\-get\-\_\-down\-\_\-bw@{media\-\_\-stream\-\_\-get\-\_\-down\-\_\-bw}}
+\index{media\-\_\-stream\-\_\-get\-\_\-down\-\_\-bw@{media\-\_\-stream\-\_\-get\-\_\-down\-\_\-bw}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{media\-\_\-stream\-\_\-get\-\_\-down\-\_\-bw}]{\setlength{\rightskip}{0pt plus 5cm}float media\-\_\-stream\-\_\-get\-\_\-down\-\_\-bw (
+\begin{DoxyParamCaption}
+\item[{const Media\-Stream $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_gabce7b687df0b15e1d0da7bdb14ed1d2f}
+get current stream download bitrate. Value is updated every seconds 
+\begin{DoxyParams}{Parameters}
+{\em stream} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bitrate in bit per seconds 
+\end{DoxyReturn}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-start\-\_\-full@{audio\-\_\-stream\-\_\-start\-\_\-full}}
+\index{audio\-\_\-stream\-\_\-start\-\_\-full@{audio\-\_\-stream\-\_\-start\-\_\-full}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-start\-\_\-full}]{\setlength{\rightskip}{0pt plus 5cm}int audio\-\_\-stream\-\_\-start\-\_\-full (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{Rtp\-Profile $\ast$}]{profile, }
+\item[{const char $\ast$}]{rem\-\_\-rtp\-\_\-ip, }
+\item[{int}]{rem\-\_\-rtp\-\_\-port, }
+\item[{const char $\ast$}]{rem\-\_\-rtcp\-\_\-ip, }
+\item[{int}]{rem\-\_\-rtcp\-\_\-port, }
+\item[{int}]{payload, }
+\item[{int}]{jitt\-\_\-comp, }
+\item[{const char $\ast$}]{infile, }
+\item[{const char $\ast$}]{outfile, }
+\item[{{\bf M\-S\-Snd\-Card} $\ast$}]{playcard, }
+\item[{{\bf M\-S\-Snd\-Card} $\ast$}]{captcard, }
+\item[{bool\-\_\-t}]{use\-\_\-ec}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga3eba16e13494623ace1517ae9c1db099}
+Starts an audio stream from/to local wav files or soundcards.
+
+This method starts the processing of the audio stream, that is playing from wav file or soundcard, voice processing, encoding, sending through R\-T\-P, receiving from R\-T\-P, decoding, voice processing and wav file recording or soundcard playback.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & an Audio\-Stream previously created with \doxyref{audio\-\_\-stream\-\_\-new()}{p.}{group__audio__stream__api_ga5d01d8c374f3d94b39f5e046de0edff6}. \\
+\hline
+{\em prof} & a Rtp\-Profile containing all Payload\-Type possible during the audio session. \\
+\hline
+{\em rem\-\_\-rtp\-\_\-ip} & remote I\-P address where to send the encoded audio. \\
+\hline
+{\em rem\-\_\-rtp\-\_\-port} & remote I\-P port where to send the encoded audio. \\
+\hline
+{\em rem\-\_\-rtcp\-\_\-ip} & remote I\-P address for R\-T\-C\-P. \\
+\hline
+{\em rem\-\_\-rtcp\-\_\-port} & remote port for R\-T\-C\-P. \\
+\hline
+{\em payload\-\_\-type} & payload type index to use for the sending stream. This index must point to a valid Payload\-Type in the Rtp\-Profile. \\
+\hline
+{\em jitt\-\_\-comp} & Nominal jitter buffer size in milliseconds. \\
+\hline
+{\em infile} & path to wav file to play out (can be N\-U\-L\-L) \\
+\hline
+{\em outfile} & path to wav file to record into (can be N\-U\-L\-L) \\
+\hline
+{\em playcard} & The soundcard to be used for playback (can be N\-U\-L\-L) \\
+\hline
+{\em captcard} & The soundcard to be used for catpure. (can be N\-U\-L\-L) \\
+\hline
+{\em echo\-\_\-cancel} & whether echo cancellation is to be performed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if sucessful, -\/1 otherwise. 
+\end{DoxyReturn}
+$<$This sound card has built-\/in echo cancellation \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-new@{audio\-\_\-stream\-\_\-new}}
+\index{audio\-\_\-stream\-\_\-new@{audio\-\_\-stream\-\_\-new}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Audio\-Stream}$\ast$ audio\-\_\-stream\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{int}]{loc\-\_\-rtp\-\_\-port, }
+\item[{int}]{loc\-\_\-rtcp\-\_\-port, }
+\item[{bool\-\_\-t}]{ipv6}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga5d01d8c374f3d94b39f5e046de0edff6}
+Creates an Audio\-Stream object listening on a R\-T\-P port. 
+\begin{DoxyParams}{Parameters}
+{\em loc\-\_\-rtp\-\_\-port} & the local U\-D\-P port to listen for R\-T\-P packets. \\
+\hline
+{\em loc\-\_\-rtcp\-\_\-port} & the local U\-D\-P port to listen for R\-T\-C\-P packets \\
+\hline
+{\em ipv6} & T\-R\-U\-E if ipv6 must be used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new Audio\-Stream. 
+\end{DoxyReturn}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-start\-\_\-now@{audio\-\_\-stream\-\_\-start\-\_\-now}}
+\index{audio\-\_\-stream\-\_\-start\-\_\-now@{audio\-\_\-stream\-\_\-start\-\_\-now}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-start\-\_\-now}]{\setlength{\rightskip}{0pt plus 5cm}int audio\-\_\-stream\-\_\-start\-\_\-now (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{Rtp\-Profile $\ast$}]{prof, }
+\item[{const char $\ast$}]{remip, }
+\item[{int}]{remport, }
+\item[{int}]{rem\-\_\-rtcp\-\_\-port, }
+\item[{int}]{payload\-\_\-type, }
+\item[{int}]{jitt\-\_\-comp, }
+\item[{{\bf M\-S\-Snd\-Card} $\ast$}]{playcard, }
+\item[{{\bf M\-S\-Snd\-Card} $\ast$}]{captcard, }
+\item[{bool\-\_\-t}]{echo\-\_\-cancel}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga8f41334f35e37954c07e1f3ce44a29dd}
+Starts an audio stream from local soundcards.
+
+This method starts the processing of the audio stream, that is capture from soundcard, voice processing, encoding, sending through R\-T\-P, receiving from R\-T\-P, decoding, voice processing and soundcard playback.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & an Audio\-Stream previously created with \doxyref{audio\-\_\-stream\-\_\-new()}{p.}{group__audio__stream__api_ga5d01d8c374f3d94b39f5e046de0edff6}. \\
+\hline
+{\em prof} & a Rtp\-Profile containing all Payload\-Type possible during the audio session. \\
+\hline
+{\em remip} & remote I\-P address where to send the encoded audio. \\
+\hline
+{\em remport} & remote I\-P port where to send the encoded audio \\
+\hline
+{\em rem\-\_\-rtcp\-\_\-port} & remote port for R\-T\-C\-P. \\
+\hline
+{\em payload\-\_\-type} & payload type index to use for the sending stream. This index must point to a valid Payload\-Type in the Rtp\-Profile. \\
+\hline
+{\em jitt\-\_\-comp} & Nominal jitter buffer size in milliseconds. \\
+\hline
+{\em playcard} & The soundcard to be used for playback \\
+\hline
+{\em captcard} & The soundcard to be used for catpure. \\
+\hline
+{\em echo\-\_\-cancel} & whether echo cancellation is to be performed. \\
+\hline
+\end{DoxyParams}
+\index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-iterate@{audio\-\_\-stream\-\_\-iterate}}
+\index{audio\-\_\-stream\-\_\-iterate@{audio\-\_\-stream\-\_\-iterate}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-iterate}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-iterate (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga26340878c90ccf45993420b7ec601a9c}
+Executes background low priority tasks related to audio processing (R\-T\-P statistics analysis). It should be called periodically, for example with an interval of 100 ms or so. \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-enable\-\_\-echo\-\_\-limiter@{audio\-\_\-stream\-\_\-enable\-\_\-echo\-\_\-limiter}}
+\index{audio\-\_\-stream\-\_\-enable\-\_\-echo\-\_\-limiter@{audio\-\_\-stream\-\_\-enable\-\_\-echo\-\_\-limiter}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-enable\-\_\-echo\-\_\-limiter}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-enable\-\_\-echo\-\_\-limiter (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{Echo\-Limiter\-Type}]{type}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_gabe5f510ce491ee8877a4c6b5cd945a4e}
+enable echo-\/limiter dispositve\-: one M\-S\-Volume in input branch controls a M\-S\-Volume in the output branch \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-enable\-\_\-gain\-\_\-control@{audio\-\_\-stream\-\_\-enable\-\_\-gain\-\_\-control}}
+\index{audio\-\_\-stream\-\_\-enable\-\_\-gain\-\_\-control@{audio\-\_\-stream\-\_\-enable\-\_\-gain\-\_\-control}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-enable\-\_\-gain\-\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-enable\-\_\-gain\-\_\-control (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{bool\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga5b229019af7590c317cdd2c4bbcf192d}
+enable gain control, to be done before start() \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-enable\-\_\-automatic\-\_\-gain\-\_\-control@{audio\-\_\-stream\-\_\-enable\-\_\-automatic\-\_\-gain\-\_\-control}}
+\index{audio\-\_\-stream\-\_\-enable\-\_\-automatic\-\_\-gain\-\_\-control@{audio\-\_\-stream\-\_\-enable\-\_\-automatic\-\_\-gain\-\_\-control}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-enable\-\_\-automatic\-\_\-gain\-\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-enable\-\_\-automatic\-\_\-gain\-\_\-control (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{bool\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_gaeeaab40dc7d132535c61ae5124c48c1e}
+enable automatic gain control, to be done before start() \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-set\-\_\-echo\-\_\-canceller\-\_\-params@{audio\-\_\-stream\-\_\-set\-\_\-echo\-\_\-canceller\-\_\-params}}
+\index{audio\-\_\-stream\-\_\-set\-\_\-echo\-\_\-canceller\-\_\-params@{audio\-\_\-stream\-\_\-set\-\_\-echo\-\_\-canceller\-\_\-params}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-set\-\_\-echo\-\_\-canceller\-\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-set\-\_\-echo\-\_\-canceller\-\_\-params (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{st, }
+\item[{int}]{tail\-\_\-len\-\_\-ms, }
+\item[{int}]{delay\-\_\-ms, }
+\item[{int}]{framesize}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga3551284d94b7c3f069d3951b35266513}
+to be done before start \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-mute\-\_\-rtp@{audio\-\_\-stream\-\_\-mute\-\_\-rtp}}
+\index{audio\-\_\-stream\-\_\-mute\-\_\-rtp@{audio\-\_\-stream\-\_\-mute\-\_\-rtp}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-mute\-\_\-rtp}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-mute\-\_\-rtp (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{bool\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga2bffbe144f1c13c6e6af3518b4df0709}
+enable/disable rtp stream \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-enable\-\_\-noise\-\_\-gate@{audio\-\_\-stream\-\_\-enable\-\_\-noise\-\_\-gate}}
+\index{audio\-\_\-stream\-\_\-enable\-\_\-noise\-\_\-gate@{audio\-\_\-stream\-\_\-enable\-\_\-noise\-\_\-gate}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-enable\-\_\-noise\-\_\-gate}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-enable\-\_\-noise\-\_\-gate (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{bool\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_gace38dfe11fac0faa1f7d6da227acf920}
+enable noise gate, must be done before start() \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-enable\-\_\-equalizer@{audio\-\_\-stream\-\_\-enable\-\_\-equalizer}}
+\index{audio\-\_\-stream\-\_\-enable\-\_\-equalizer@{audio\-\_\-stream\-\_\-enable\-\_\-equalizer}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-enable\-\_\-equalizer}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-enable\-\_\-equalizer (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{bool\-\_\-t}]{enabled}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga3f514de156ad13d27f6292b83ffdb81f}
+enable parametric equalizer in the stream that goes to the speaker \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-stop@{audio\-\_\-stream\-\_\-stop}}
+\index{audio\-\_\-stream\-\_\-stop@{audio\-\_\-stream\-\_\-stop}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void audio\-\_\-stream\-\_\-stop (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_gaf0355adf0980883e53d78de873fb00c7}
+stop the audio streaming thread and free everything \index{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}!audio\-\_\-stream\-\_\-send\-\_\-dtmf@{audio\-\_\-stream\-\_\-send\-\_\-dtmf}}
+\index{audio\-\_\-stream\-\_\-send\-\_\-dtmf@{audio\-\_\-stream\-\_\-send\-\_\-dtmf}!Audio streaming API - Create and run VoIP audio streams.@{Audio streaming A\-P\-I -\/ Create and run Vo\-I\-P audio streams.}}
+\subsubsection[{audio\-\_\-stream\-\_\-send\-\_\-dtmf}]{\setlength{\rightskip}{0pt plus 5cm}int audio\-\_\-stream\-\_\-send\-\_\-dtmf (
+\begin{DoxyParamCaption}
+\item[{{\bf Audio\-Stream} $\ast$}]{stream, }
+\item[{char}]{dtmf}
+\end{DoxyParamCaption}
+)}\label{group__audio__stream__api_ga1ae26558b24c870df0f939dd4a0f7fe7}
+send a dtmf 

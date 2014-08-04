@@ -1,0 +1,36 @@
+\section{-\/ S\-I\-L\-K (Skype codec) plugin}
+\label{group__mssilk}\index{-\/ S\-I\-L\-K (\-Skype codec)  plugin@{-\/ S\-I\-L\-K (\-Skype codec)  plugin}}
+
+
+S\-I\-L\-K Speech Codec (draft-\/vos-\/silk-\/02) plugins filters to encode and decode audio.  
+
+
+S\-I\-L\-K Speech Codec (draft-\/vos-\/silk-\/02) plugins filters to encode and decode audio. {\bfseries M\-S\-S\-I\-L\-K\-Enc} and {\bfseries M\-S\-S\-I\-L\-K\-Dec} are 2 Mediastremer2's filters available to encode/decode speech using S\-I\-L\-K sdk from Skype. $\ast$\-This integration leverage on source code from\-: {\tt http\-://developer.\-skype.\-com/silk}. Note that usage of this plugin is subject to license from Skype. \par
+\par
+ {\bfseries  Supported S\-I\-L\-K features} \par
+ S\-I\-L\-K is a multi rate, multi sampling frequency codec with variable packetization time. S\-I\-L\-K allows control of these parameters using standard Mediastreamer2 functions. \par
+\par
+ {\bfseries  init} \par
+ mssilk is automatically loaded by Medistreamer2 in case libmssilk.\-so is present in the Mediastremer2 plugin directory. Alternatively it is possible to load it by calling the function 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} libmssilk\_init() 
+\end{DoxyCode}
+ Very usefull for Android or I\-O\-S. \par
+\par
+ {\bfseries  M\-S\-S\-I\-L\-K\-Enc} \par
+ M\-S\-S\-I\-L\-K\-Enc is a filter from category \doxyref{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R}{p.}{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a77401d653240a6f21afb6b98dddd0604}. It has its {\bfseries enc\-\_\-fmt} value set to {\bfseries \char`\"{}\-S\-I\-L\-K\char`\"{}}.The following key control functions are implemented\-: \par
+ 
+\begin{DoxyItemize}
+\item {\bfseries \doxyref{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}{p.}{group__mediastreamer2__filter_ga72923806f1bca717d45e9b96423f1ca8}} Set both the output and input sampling rate. This value is internally mapped to both maximum codec sampling rate and A\-P\-I sampling rate. Supported value are 8000, 12000, 16000 and 24000. This value can be changed at any time. 
+\item {\bfseries \doxyref{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}{p.}{group__mediastreamer2__filter_gad2b1e2f40765ba33021479cf74552a5c}} Set the target network output bitrate for this filter. As this value takes into account R\-T\-P/\-U\-D\-P/\-I\-P overhead, this filter first computes a codec bitrate from both this input and current packetization time value (I.\-E ptime). Computed codec bitrate value is passed to the S\-I\-L\-K encoder as target bitrate. This value can be changed at any time. 
+\item {\bfseries \doxyref{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P}{p.}{group__mediastreamer2__filter_ga388f3fb78097eace39ee777a6814c2db}} Set codec specific parameter as described in draft-\/vos-\/silk-\/02. Default values are those proposed by draft-\/vos-\/silk-\/02. Supported parameters are {\bfseries maxptime}, {\bfseries ptime}, {\bfseries useinbandfec}. 
+\end{DoxyItemize}\par
+ Preset S\-I\-L\-K encoder's values not configurable are\-: encoder {\bfseries complexity} set to 1, {\bfseries packet\-Loss\-Percentage} set to 10 and {\bfseries use\-D\-T\-X} set to 0. \par
+\par
+ {\bfseries  M\-S\-S\-I\-L\-Dec} \par
+ M\-S\-S\-I\-L\-Dec is a filter from category \doxyref{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R}{p.}{group__mediastreamer2__filter_ggad5279a551f5f10f3b80887f19b345101a113bbb21c331c2eb2174165bf0135ca6}. It has its {\bfseries enc\-\_\-fmt} value set to {\bfseries \char`\"{}\-S\-I\-L\-K\char`\"{}}.This filter make use of S\-I\-L\-K's builtin Packet Lose Concealment and Forward Error Correction feature.\-The following key control functions are implemented\-: \par
+ 
+\begin{DoxyItemize}
+\item {\bfseries \doxyref{M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}{p.}{group__mediastreamer2__filter_ga72923806f1bca717d45e9b96423f1ca8}} Set output sampling rate. This value is internally mapped to A\-P\-I sampling rate.\-Supported value are 8000, 12000, 16000, 24000, 32000, 44000 and 48000. This value can be changed at any time. 
+\end{DoxyItemize}\par
+ 

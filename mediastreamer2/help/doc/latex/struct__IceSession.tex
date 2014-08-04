@@ -1,0 +1,95 @@
+\section{\-\_\-\-Ice\-Session Struct Reference}
+\label{struct__IceSession}\index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}}
+
+
+{\ttfamily \#include $<$ice.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+M\-S\-List $\ast$ {\bf streams}
+\item 
+char $\ast$ {\bf local\-\_\-ufrag}
+\item 
+char $\ast$ {\bf local\-\_\-pwd}
+\item 
+char $\ast$ {\bf remote\-\_\-ufrag}
+\item 
+char $\ast$ {\bf remote\-\_\-pwd}
+\item 
+{\bf Ice\-Role} {\bf role}
+\item 
+{\bf Ice\-Session\-State} {\bf state}
+\item 
+uint64\-\_\-t {\bf tie\-\_\-breaker}
+\item 
+uint32\-\_\-t {\bf ta}
+\item 
+uint8\-\_\-t {\bf max\-\_\-connectivity\-\_\-checks}
+\item 
+uint8\-\_\-t {\bf keepalive\-\_\-timeout}
+\item 
+M\-S\-Time\-Spec {\bf event\-\_\-time}
+\item 
+bool\-\_\-t {\bf send\-\_\-event}
+\item 
+struct sockaddr\-\_\-storage {\bf ss}
+\item 
+socklen\-\_\-t {\bf ss\-\_\-len}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure representing an I\-C\-E session. 
+
+\subsection{Field Documentation}
+\index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!streams@{streams}}
+\index{streams@{streams}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{streams}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-List$\ast$ \-\_\-\-Ice\-Session\-::streams}\label{struct__IceSession_ab05c8d1301b5d38bb4bc09d9a12a5369}
+List of Ice\-Checklist structures. Each element of the list represents a media stream \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!local\-\_\-ufrag@{local\-\_\-ufrag}}
+\index{local\-\_\-ufrag@{local\-\_\-ufrag}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{local\-\_\-ufrag}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-Ice\-Session\-::local\-\_\-ufrag}\label{struct__IceSession_a25a86fb6bbe126c11e8f3081b6ffb3ad}
+Local username fragment for the session (assigned during the session creation) \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!local\-\_\-pwd@{local\-\_\-pwd}}
+\index{local\-\_\-pwd@{local\-\_\-pwd}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{local\-\_\-pwd}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-Ice\-Session\-::local\-\_\-pwd}\label{struct__IceSession_aae2c15f2276b71df770d6f28e368a5be}
+Local password for the session (assigned during the session creation) \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!remote\-\_\-ufrag@{remote\-\_\-ufrag}}
+\index{remote\-\_\-ufrag@{remote\-\_\-ufrag}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{remote\-\_\-ufrag}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-Ice\-Session\-::remote\-\_\-ufrag}\label{struct__IceSession_a1c31f66a6a483f6bef1fd41cba354755}
+Remote username fragment for the session (provided via S\-D\-P by the peer) \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!remote\-\_\-pwd@{remote\-\_\-pwd}}
+\index{remote\-\_\-pwd@{remote\-\_\-pwd}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{remote\-\_\-pwd}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \-\_\-\-Ice\-Session\-::remote\-\_\-pwd}\label{struct__IceSession_a02b6c6bf7d1aeca916226f37ac074645}
+Remote password for the session (provided via S\-D\-P by the peer) \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!role@{role}}
+\index{role@{role}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{role}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ice\-Role} \-\_\-\-Ice\-Session\-::role}\label{struct__IceSession_ae05f81c7775a437b327aa8b0e6c701bf}
+Role played by the agent for this session \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!state@{state}}
+\index{state@{state}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ice\-Session\-State} \-\_\-\-Ice\-Session\-::state}\label{struct__IceSession_a66281b0aa96c3914031a489499ecb5c2}
+State of the session \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!tie\-\_\-breaker@{tie\-\_\-breaker}}
+\index{tie\-\_\-breaker@{tie\-\_\-breaker}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{tie\-\_\-breaker}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t \-\_\-\-Ice\-Session\-::tie\-\_\-breaker}\label{struct__IceSession_a0a5465370a616123ab40bcb2783791ba}
+Random number used to resolve role conflicts (see paragraph 5.\-2 of the R\-F\-C 5245) \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!ta@{ta}}
+\index{ta@{ta}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{ta}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-\-Ice\-Session\-::ta}\label{struct__IceSession_ad7db59b18b696629923b4007dd7cb8ba}
+Duration of timer for sending connectivity checks in ms \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!max\-\_\-connectivity\-\_\-checks@{max\-\_\-connectivity\-\_\-checks}}
+\index{max\-\_\-connectivity\-\_\-checks@{max\-\_\-connectivity\-\_\-checks}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{max\-\_\-connectivity\-\_\-checks}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t \-\_\-\-Ice\-Session\-::max\-\_\-connectivity\-\_\-checks}\label{struct__IceSession_a154d6b0bd4834d047c37d44914b64330}
+Configuration parameter to limit the number of connectivity checks performed by the agent (default is 100) \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!keepalive\-\_\-timeout@{keepalive\-\_\-timeout}}
+\index{keepalive\-\_\-timeout@{keepalive\-\_\-timeout}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{keepalive\-\_\-timeout}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t \-\_\-\-Ice\-Session\-::keepalive\-\_\-timeout}\label{struct__IceSession_a1f9e3ba5eda2de70f14d53c2e5afa628}
+Configuration parameter to define the timeout between each keepalive packets (default is 15s) \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!event\-\_\-time@{event\-\_\-time}}
+\index{event\-\_\-time@{event\-\_\-time}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{event\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Time\-Spec \-\_\-\-Ice\-Session\-::event\-\_\-time}\label{struct__IceSession_a83c3a06f6e91361a29cb20bf4376659e}
+Time when an event must be sent \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!send\-\_\-event@{send\-\_\-event}}
+\index{send\-\_\-event@{send\-\_\-event}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{send\-\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}bool\-\_\-t \-\_\-\-Ice\-Session\-::send\-\_\-event}\label{struct__IceSession_a661d4e8eacfbc74145b2a78a8a3122f4}
+Value of the event to send Boolean value telling whether an event must be sent or not \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!ss@{ss}}
+\index{ss@{ss}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{ss}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\-\_\-storage \-\_\-\-Ice\-Session\-::ss}\label{struct__IceSession_a7e08a3862b6b10fed3c0230f1ea17e7e}
+S\-T\-U\-N server address to use for the candidates gathering process \index{\-\_\-\-Ice\-Session@{\-\_\-\-Ice\-Session}!ss\-\_\-len@{ss\-\_\-len}}
+\index{ss\-\_\-len@{ss\-\_\-len}!_IceSession@{\-\_\-\-Ice\-Session}}
+\subsubsection[{ss\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}socklen\-\_\-t \-\_\-\-Ice\-Session\-::ss\-\_\-len}\label{struct__IceSession_af5a3e2cca8b877033aecf8c26b4ba088}
+Length of the S\-T\-U\-N server address to use for the candidates gathering process 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+{\bf ice.\-h}\end{DoxyCompactItemize}

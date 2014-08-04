@@ -1,0 +1,60 @@
+\section{mswebcam.\-h File Reference}
+\label{mswebcam_8h}\index{mswebcam.\-h@{mswebcam.\-h}}
+
+
+mediastreamer2 \doxyref{mswebcam.\-h}{p.}{mswebcam_8h} include file  
+
+
+{\ttfamily \#include $<$mediastreamer2/mscommon.\-h$>$}\\*
+Include dependency graph for mswebcam.\-h\-:
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E}~{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}(M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-I\-D,0,const char)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \-\_\-\-M\-S\-Web\-Cam\-Manager {\bf M\-S\-Web\-Cam\-Manager}
+\item 
+typedef struct \-\_\-\-M\-S\-Web\-Cam\-Desc {\bf M\-S\-Web\-Cam\-Desc}
+\item 
+typedef struct \-\_\-\-M\-S\-Web\-Cam {\bf M\-S\-Web\-Cam}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf M\-S\-Web\-Cam\-Manager} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get} (void)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy} (void)
+\item 
+{\bf M\-S\-Web\-Cam} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, const char $\ast$id)
+\item 
+{\bf M\-S\-Web\-Cam} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m)
+\item 
+const M\-S\-List $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, {\bf M\-S\-Web\-Cam} $\ast$c)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, {\bf M\-S\-Web\-Cam} $\ast$c)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, {\bf M\-S\-Web\-Cam\-Desc} $\ast$desc)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m)
+\item 
+struct \-\_\-\-M\-S\-Filter $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader} ({\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+{\bf M\-S\-Web\-Cam} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-new} ({\bf M\-S\-Web\-Cam\-Desc} $\ast$desc)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-destroy} ({\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type} (const {\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name} (const {\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id} ({\bf M\-S\-Web\-Cam} $\ast$obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{mswebcam.\-h}{p.}{mswebcam_8h} include file This file provide the A\-P\-I needed to manage soundcard filters. 

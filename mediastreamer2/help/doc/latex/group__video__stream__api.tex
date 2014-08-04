@@ -1,0 +1,84 @@
+\section{Video streaming A\-P\-I -\/ Create and run video streams.}
+\label{group__video__stream__api}\index{Video streaming A\-P\-I -\/ Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}}
+
+
+Video streaming A\-P\-I -\/ Easily run video streams from camera capture or static picture files to R\-T\-P.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef Video\-Stream {\bf Video\-Preview}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+M\-S\-Video\-Size {\bf video\-\_\-stream\-\_\-get\-\_\-sent\-\_\-video\-\_\-size} (const Video\-Stream $\ast$stream)
+\item 
+M\-S\-Video\-Size {\bf video\-\_\-stream\-\_\-get\-\_\-received\-\_\-video\-\_\-size} (const Video\-Stream $\ast$stream)
+\item 
+int {\bf video\-\_\-stream\-\_\-get\-\_\-camera\-\_\-sensor\-\_\-rotation} (Video\-Stream $\ast$stream)
+\begin{DoxyCompactList}\small\item\em Gets the camera sensor rotation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Video streaming A\-P\-I -\/ Easily run video streams from camera capture or static picture files to R\-T\-P. 
+
+\subsection{Typedef Documentation}
+\index{Video streaming A\-P\-I -\/ Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}!Video\-Preview@{Video\-Preview}}
+\index{Video\-Preview@{Video\-Preview}!Video streaming API - Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}}
+\subsubsection[{Video\-Preview}]{\setlength{\rightskip}{0pt plus 5cm}typedef Video\-Stream {\bf Video\-Preview}}\label{group__video__stream__api_ga305d6ba6aa486545212ced06855c467a}
+Small A\-P\-I to display a local preview window. 
+
+\subsection{Function Documentation}
+\index{Video streaming A\-P\-I -\/ Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}!video\-\_\-stream\-\_\-get\-\_\-sent\-\_\-video\-\_\-size@{video\-\_\-stream\-\_\-get\-\_\-sent\-\_\-video\-\_\-size}}
+\index{video\-\_\-stream\-\_\-get\-\_\-sent\-\_\-video\-\_\-size@{video\-\_\-stream\-\_\-get\-\_\-sent\-\_\-video\-\_\-size}!Video streaming API - Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}}
+\subsubsection[{video\-\_\-stream\-\_\-get\-\_\-sent\-\_\-video\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Video\-Size video\-\_\-stream\-\_\-get\-\_\-sent\-\_\-video\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const Video\-Stream $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__video__stream__api_ga1db3ca6779fac9315d6c690bdb36c08d}
+Gets the size of the video that is sent. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stream} & The videostream for which to get the sent video size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sent video size or M\-S\-\_\-\-V\-I\-D\-E\-O\-\_\-\-S\-I\-Z\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N if not available. 
+\end{DoxyReturn}
+\index{Video streaming A\-P\-I -\/ Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}!video\-\_\-stream\-\_\-get\-\_\-received\-\_\-video\-\_\-size@{video\-\_\-stream\-\_\-get\-\_\-received\-\_\-video\-\_\-size}}
+\index{video\-\_\-stream\-\_\-get\-\_\-received\-\_\-video\-\_\-size@{video\-\_\-stream\-\_\-get\-\_\-received\-\_\-video\-\_\-size}!Video streaming API - Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}}
+\subsubsection[{video\-\_\-stream\-\_\-get\-\_\-received\-\_\-video\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Video\-Size video\-\_\-stream\-\_\-get\-\_\-received\-\_\-video\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const Video\-Stream $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__video__stream__api_ga4eb686154b8acb2d4d9bc49d3201c9b3}
+Gets the size of the video that is received. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stream} & The videostream for which to get the received video size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The received video size or M\-S\-\_\-\-V\-I\-D\-E\-O\-\_\-\-S\-I\-Z\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N if not available. 
+\end{DoxyReturn}
+\index{Video streaming A\-P\-I -\/ Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}!video\-\_\-stream\-\_\-get\-\_\-camera\-\_\-sensor\-\_\-rotation@{video\-\_\-stream\-\_\-get\-\_\-camera\-\_\-sensor\-\_\-rotation}}
+\index{video\-\_\-stream\-\_\-get\-\_\-camera\-\_\-sensor\-\_\-rotation@{video\-\_\-stream\-\_\-get\-\_\-camera\-\_\-sensor\-\_\-rotation}!Video streaming API - Create and run video streams.@{Video streaming A\-P\-I -\/ Create and run video streams.}}
+\subsubsection[{video\-\_\-stream\-\_\-get\-\_\-camera\-\_\-sensor\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}int video\-\_\-stream\-\_\-get\-\_\-camera\-\_\-sensor\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{Video\-Stream $\ast$}]{stream}
+\end{DoxyParamCaption}
+)}\label{group__video__stream__api_ga860729c6238940f51c134927d7994cfc}
+
+
+Gets the camera sensor rotation. 
+
+This is needed on some mobile platforms to get the number of degrees the camera sensor is rotated relative to the screen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The video stream related to the operation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The camera sensor rotation in degrees (0 to 360) or -\/1 if it could not be retrieved 
+\end{DoxyReturn}

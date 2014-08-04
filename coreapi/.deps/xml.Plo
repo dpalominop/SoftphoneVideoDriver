@@ -1,0 +1,531 @@
+xml.lo: xml.c private.h linphonecore.h ../oRTP/include/ortp/ortp.h \
+ ../oRTP/include/ortp/logging.h ../oRTP/include/ortp/port.h \
+ /usr/include/errno.h /usr/include/features.h /usr/include/stdc-predef.h \
+ /usr/include/i386-linux-gnu/bits/predefs.h \
+ /usr/include/i386-linux-gnu/sys/cdefs.h \
+ /usr/include/i386-linux-gnu/bits/wordsize.h \
+ /usr/include/i386-linux-gnu/gnu/stubs.h \
+ /usr/include/i386-linux-gnu/gnu/stubs-32.h \
+ /usr/include/i386-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/i386-linux-gnu/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h \
+ /usr/include/i386-linux-gnu/sys/types.h \
+ /usr/include/i386-linux-gnu/bits/types.h \
+ /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/time.h \
+ /usr/lib/gcc/i686-linux-gnu/4.7/include/stddef.h /usr/include/endian.h \
+ /usr/include/i386-linux-gnu/bits/endian.h \
+ /usr/include/i386-linux-gnu/bits/byteswap.h \
+ /usr/include/i386-linux-gnu/bits/byteswap-16.h \
+ /usr/include/i386-linux-gnu/sys/select.h \
+ /usr/include/i386-linux-gnu/bits/select.h \
+ /usr/include/i386-linux-gnu/bits/sigset.h \
+ /usr/include/i386-linux-gnu/bits/time.h \
+ /usr/include/i386-linux-gnu/bits/select2.h \
+ /usr/include/i386-linux-gnu/sys/sysmacros.h \
+ /usr/include/i386-linux-gnu/bits/pthreadtypes.h /usr/include/pthread.h \
+ /usr/include/sched.h /usr/include/i386-linux-gnu/bits/sched.h \
+ /usr/include/xlocale.h /usr/include/i386-linux-gnu/bits/setjmp.h \
+ /usr/include/unistd.h /usr/include/i386-linux-gnu/bits/posix_opt.h \
+ /usr/include/i386-linux-gnu/bits/environments.h \
+ /usr/include/i386-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/i386-linux-gnu/bits/unistd.h /usr/include/fcntl.h \
+ /usr/include/i386-linux-gnu/bits/fcntl.h \
+ /usr/include/i386-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/i386-linux-gnu/bits/stat.h \
+ /usr/include/i386-linux-gnu/bits/fcntl2.h /usr/include/stdlib.h \
+ /usr/include/i386-linux-gnu/bits/waitflags.h \
+ /usr/include/i386-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/i386-linux-gnu/bits/stdlib-float.h \
+ /usr/include/i386-linux-gnu/bits/stdlib.h /usr/include/stdio.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/i686-linux-gnu/4.7/include/stdarg.h \
+ /usr/include/i386-linux-gnu/bits/stdio_lim.h \
+ /usr/include/i386-linux-gnu/bits/sys_errlist.h \
+ /usr/include/i386-linux-gnu/bits/stdio.h \
+ /usr/include/i386-linux-gnu/bits/stdio2.h /usr/include/string.h \
+ /usr/include/i386-linux-gnu/bits/string.h \
+ /usr/include/i386-linux-gnu/bits/string2.h \
+ /usr/include/i386-linux-gnu/bits/string3.h \
+ /usr/lib/gcc/i686-linux-gnu/4.7/include/stdint.h /usr/include/stdint.h \
+ /usr/include/i386-linux-gnu/bits/wchar.h \
+ /usr/include/i386-linux-gnu/sys/socket.h \
+ /usr/include/i386-linux-gnu/sys/uio.h \
+ /usr/include/i386-linux-gnu/bits/uio.h \
+ /usr/include/i386-linux-gnu/bits/socket.h \
+ /usr/include/i386-linux-gnu/bits/socket_type.h \
+ /usr/include/i386-linux-gnu/bits/sockaddr.h \
+ /usr/include/i386-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/i386-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/i386-linux-gnu/bits/socket2.h /usr/include/netinet/in.h \
+ /usr/include/i386-linux-gnu/bits/in.h /usr/include/arpa/inet.h \
+ /usr/include/i386-linux-gnu/sys/time.h /usr/include/netdb.h \
+ /usr/include/rpc/netdb.h /usr/include/i386-linux-gnu/bits/netdb.h \
+ ../oRTP/include/ortp/rtpsession.h ../oRTP/include/ortp/rtp.h \
+ ../oRTP/include/ortp/str_utils.h ../oRTP/include/ortp/payloadtype.h \
+ ../oRTP/include/ortp/rtpprofile.h ../oRTP/include/ortp/sessionset.h \
+ ../oRTP/include/ortp/rtcp.h ../oRTP/include/ortp/rtpsignaltable.h \
+ ../oRTP/include/ortp/event.h \
+ ../mediastreamer2/include/mediastreamer2/mscommon.h \
+ ../mediastreamer2/include/mediastreamer2/msvideo.h \
+ ../mediastreamer2/include/mediastreamer2/msfilter.h \
+ ../mediastreamer2/include/mediastreamer2/mscommon.h \
+ ../mediastreamer2/include/mediastreamer2/msqueue.h \
+ ../mediastreamer2/include/mediastreamer2/allfilters.h \
+ ../mediastreamer2/include/mediastreamer2/msinterfaces.h \
+ ../mediastreamer2/include/mediastreamer2/mediastream.h \
+ ../mediastreamer2/include/mediastreamer2/msticker.h \
+ ../mediastreamer2/include/mediastreamer2/mssndcard.h \
+ ../mediastreamer2/include/mediastreamer2/mswebcam.h \
+ ../mediastreamer2/include/mediastreamer2/bitratecontrol.h \
+ ../mediastreamer2/include/mediastreamer2/qualityindicator.h \
+ ../mediastreamer2/include/mediastreamer2/ice.h \
+ ../oRTP/include/ortp/stun_udp.h ../oRTP/include/ortp/stun.h \
+ ../oRTP/include/ortp/zrtp.h ../oRTP/include/ortp/ortp_srtp.h sipsetup.h \
+ lpconfig.h linphonefriend.h linphonepresence.h event.h linphone_tunnel.h \
+ linphonecore_utils.h ../include/sal/sal.h ../config.h \
+ /usr/include/belle-sip/belle-sip.h /usr/include/belle-sip/types.h \
+ /usr/include/belle-sip/defs.h /usr/include/inttypes.h \
+ /usr/include/belle-sip/object.h /usr/include/belle-sip/utils.h \
+ /usr/include/belle-sip/defs.h /usr/include/belle-sip/dict.h \
+ /usr/include/belle-sip/object.h /usr/include/belle-sip/list.h \
+ /usr/include/belle-sip/listener.h /usr/include/belle-sip/mainloop.h \
+ /usr/include/belle-sip/sip-uri.h /usr/include/belle-sip/headers.h \
+ /usr/include/belle-sip/parameters.h /usr/include/belle-sip/message.h \
+ /usr/include/belle-sip/refresher.h /usr/include/belle-sip/transaction.h \
+ /usr/include/belle-sip/dialog.h /usr/include/belle-sip/sipstack.h \
+ /usr/include/belle-sip/resolver.h \
+ /usr/include/belle-sip/listeningpoint.h \
+ /usr/include/belle-sip/provider.h /usr/include/belle-sip/auth-helper.h \
+ /usr/include/belle-sip/generic-uri.h \
+ /usr/include/belle-sip/http-listener.h \
+ /usr/include/belle-sip/http-provider.h \
+ /usr/include/belle-sip/http-message.h /usr/include/belle-sip/belle-sdp.h \
+ ../mediastreamer2/include/mediastreamer2/msconference.h upnp.h \
+ ../mediastreamer2/include/mediastreamer2/upnp_igd.h \
+ /usr/include/sqlite3.h /usr/include/libintl.h /usr/include/locale.h \
+ /usr/include/i386-linux-gnu/bits/locale.h \
+ /usr/include/libxml2/libxml/xmlreader.h \
+ /usr/include/libxml2/libxml/xmlversion.h \
+ /usr/include/libxml2/libxml/xmlexports.h \
+ /usr/include/libxml2/libxml/tree.h \
+ /usr/lib/gcc/i686-linux-gnu/4.7/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/4.7/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
+ /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/i386-linux-gnu/bits/posix2_lim.h \
+ /usr/include/libxml2/libxml/xmlstring.h \
+ /usr/include/libxml2/libxml/xmlregexp.h \
+ /usr/include/libxml2/libxml/dict.h \
+ /usr/include/libxml2/libxml/xmlmemory.h \
+ /usr/include/libxml2/libxml/threads.h \
+ /usr/include/libxml2/libxml/globals.h \
+ /usr/include/libxml2/libxml/parser.h /usr/include/libxml2/libxml/hash.h \
+ /usr/include/libxml2/libxml/valid.h \
+ /usr/include/libxml2/libxml/xmlerror.h \
+ /usr/include/libxml2/libxml/list.h \
+ /usr/include/libxml2/libxml/xmlautomata.h \
+ /usr/include/libxml2/libxml/entities.h \
+ /usr/include/libxml2/libxml/encoding.h /usr/include/iconv.h \
+ /usr/include/libxml2/libxml/xmlIO.h /usr/include/libxml2/libxml/SAX.h \
+ /usr/include/libxml2/libxml/xlink.h /usr/include/libxml2/libxml/SAX2.h \
+ /usr/include/libxml2/libxml/relaxng.h \
+ /usr/include/libxml2/libxml/xmlschemas.h \
+ /usr/include/libxml2/libxml/xmlwriter.h \
+ /usr/include/libxml2/libxml/xpath.h \
+ /usr/include/libxml2/libxml/xpathInternals.h
+
+private.h:
+
+linphonecore.h:
+
+../oRTP/include/ortp/ortp.h:
+
+../oRTP/include/ortp/logging.h:
+
+../oRTP/include/ortp/port.h:
+
+/usr/include/errno.h:
+
+/usr/include/features.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/i386-linux-gnu/bits/predefs.h:
+
+/usr/include/i386-linux-gnu/sys/cdefs.h:
+
+/usr/include/i386-linux-gnu/bits/wordsize.h:
+
+/usr/include/i386-linux-gnu/gnu/stubs.h:
+
+/usr/include/i386-linux-gnu/gnu/stubs-32.h:
+
+/usr/include/i386-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/i386-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/i386-linux-gnu/sys/types.h:
+
+/usr/include/i386-linux-gnu/bits/types.h:
+
+/usr/include/i386-linux-gnu/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.7/include/stddef.h:
+
+/usr/include/endian.h:
+
+/usr/include/i386-linux-gnu/bits/endian.h:
+
+/usr/include/i386-linux-gnu/bits/byteswap.h:
+
+/usr/include/i386-linux-gnu/bits/byteswap-16.h:
+
+/usr/include/i386-linux-gnu/sys/select.h:
+
+/usr/include/i386-linux-gnu/bits/select.h:
+
+/usr/include/i386-linux-gnu/bits/sigset.h:
+
+/usr/include/i386-linux-gnu/bits/time.h:
+
+/usr/include/i386-linux-gnu/bits/select2.h:
+
+/usr/include/i386-linux-gnu/sys/sysmacros.h:
+
+/usr/include/i386-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/i386-linux-gnu/bits/sched.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/i386-linux-gnu/bits/setjmp.h:
+
+/usr/include/unistd.h:
+
+/usr/include/i386-linux-gnu/bits/posix_opt.h:
+
+/usr/include/i386-linux-gnu/bits/environments.h:
+
+/usr/include/i386-linux-gnu/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/i386-linux-gnu/bits/unistd.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/i386-linux-gnu/bits/fcntl.h:
+
+/usr/include/i386-linux-gnu/bits/fcntl-linux.h:
+
+/usr/include/i386-linux-gnu/bits/stat.h:
+
+/usr/include/i386-linux-gnu/bits/fcntl2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/i386-linux-gnu/bits/waitflags.h:
+
+/usr/include/i386-linux-gnu/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/i386-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/i386-linux-gnu/bits/stdlib.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.7/include/stdarg.h:
+
+/usr/include/i386-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/i386-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/i386-linux-gnu/bits/stdio.h:
+
+/usr/include/i386-linux-gnu/bits/stdio2.h:
+
+/usr/include/string.h:
+
+/usr/include/i386-linux-gnu/bits/string.h:
+
+/usr/include/i386-linux-gnu/bits/string2.h:
+
+/usr/include/i386-linux-gnu/bits/string3.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.7/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/i386-linux-gnu/bits/wchar.h:
+
+/usr/include/i386-linux-gnu/sys/socket.h:
+
+/usr/include/i386-linux-gnu/sys/uio.h:
+
+/usr/include/i386-linux-gnu/bits/uio.h:
+
+/usr/include/i386-linux-gnu/bits/socket.h:
+
+/usr/include/i386-linux-gnu/bits/socket_type.h:
+
+/usr/include/i386-linux-gnu/bits/sockaddr.h:
+
+/usr/include/i386-linux-gnu/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/i386-linux-gnu/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/i386-linux-gnu/bits/socket2.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/i386-linux-gnu/bits/in.h:
+
+/usr/include/arpa/inet.h:
+
+/usr/include/i386-linux-gnu/sys/time.h:
+
+/usr/include/netdb.h:
+
+/usr/include/rpc/netdb.h:
+
+/usr/include/i386-linux-gnu/bits/netdb.h:
+
+../oRTP/include/ortp/rtpsession.h:
+
+../oRTP/include/ortp/rtp.h:
+
+../oRTP/include/ortp/str_utils.h:
+
+../oRTP/include/ortp/payloadtype.h:
+
+../oRTP/include/ortp/rtpprofile.h:
+
+../oRTP/include/ortp/sessionset.h:
+
+../oRTP/include/ortp/rtcp.h:
+
+../oRTP/include/ortp/rtpsignaltable.h:
+
+../oRTP/include/ortp/event.h:
+
+../mediastreamer2/include/mediastreamer2/mscommon.h:
+
+../mediastreamer2/include/mediastreamer2/msvideo.h:
+
+../mediastreamer2/include/mediastreamer2/msfilter.h:
+
+../mediastreamer2/include/mediastreamer2/mscommon.h:
+
+../mediastreamer2/include/mediastreamer2/msqueue.h:
+
+../mediastreamer2/include/mediastreamer2/allfilters.h:
+
+../mediastreamer2/include/mediastreamer2/msinterfaces.h:
+
+../mediastreamer2/include/mediastreamer2/mediastream.h:
+
+../mediastreamer2/include/mediastreamer2/msticker.h:
+
+../mediastreamer2/include/mediastreamer2/mssndcard.h:
+
+../mediastreamer2/include/mediastreamer2/mswebcam.h:
+
+../mediastreamer2/include/mediastreamer2/bitratecontrol.h:
+
+../mediastreamer2/include/mediastreamer2/qualityindicator.h:
+
+../mediastreamer2/include/mediastreamer2/ice.h:
+
+../oRTP/include/ortp/stun_udp.h:
+
+../oRTP/include/ortp/stun.h:
+
+../oRTP/include/ortp/zrtp.h:
+
+../oRTP/include/ortp/ortp_srtp.h:
+
+sipsetup.h:
+
+lpconfig.h:
+
+linphonefriend.h:
+
+linphonepresence.h:
+
+event.h:
+
+linphone_tunnel.h:
+
+linphonecore_utils.h:
+
+../include/sal/sal.h:
+
+../config.h:
+
+/usr/include/belle-sip/belle-sip.h:
+
+/usr/include/belle-sip/types.h:
+
+/usr/include/belle-sip/defs.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/belle-sip/object.h:
+
+/usr/include/belle-sip/utils.h:
+
+/usr/include/belle-sip/defs.h:
+
+/usr/include/belle-sip/dict.h:
+
+/usr/include/belle-sip/object.h:
+
+/usr/include/belle-sip/list.h:
+
+/usr/include/belle-sip/listener.h:
+
+/usr/include/belle-sip/mainloop.h:
+
+/usr/include/belle-sip/sip-uri.h:
+
+/usr/include/belle-sip/headers.h:
+
+/usr/include/belle-sip/parameters.h:
+
+/usr/include/belle-sip/message.h:
+
+/usr/include/belle-sip/refresher.h:
+
+/usr/include/belle-sip/transaction.h:
+
+/usr/include/belle-sip/dialog.h:
+
+/usr/include/belle-sip/sipstack.h:
+
+/usr/include/belle-sip/resolver.h:
+
+/usr/include/belle-sip/listeningpoint.h:
+
+/usr/include/belle-sip/provider.h:
+
+/usr/include/belle-sip/auth-helper.h:
+
+/usr/include/belle-sip/generic-uri.h:
+
+/usr/include/belle-sip/http-listener.h:
+
+/usr/include/belle-sip/http-provider.h:
+
+/usr/include/belle-sip/http-message.h:
+
+/usr/include/belle-sip/belle-sdp.h:
+
+../mediastreamer2/include/mediastreamer2/msconference.h:
+
+upnp.h:
+
+../mediastreamer2/include/mediastreamer2/upnp_igd.h:
+
+/usr/include/sqlite3.h:
+
+/usr/include/libintl.h:
+
+/usr/include/locale.h:
+
+/usr/include/i386-linux-gnu/bits/locale.h:
+
+/usr/include/libxml2/libxml/xmlreader.h:
+
+/usr/include/libxml2/libxml/xmlversion.h:
+
+/usr/include/libxml2/libxml/xmlexports.h:
+
+/usr/include/libxml2/libxml/tree.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.7/include-fixed/limits.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.7/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/i386-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/i386-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/libxml2/libxml/xmlstring.h:
+
+/usr/include/libxml2/libxml/xmlregexp.h:
+
+/usr/include/libxml2/libxml/dict.h:
+
+/usr/include/libxml2/libxml/xmlmemory.h:
+
+/usr/include/libxml2/libxml/threads.h:
+
+/usr/include/libxml2/libxml/globals.h:
+
+/usr/include/libxml2/libxml/parser.h:
+
+/usr/include/libxml2/libxml/hash.h:
+
+/usr/include/libxml2/libxml/valid.h:
+
+/usr/include/libxml2/libxml/xmlerror.h:
+
+/usr/include/libxml2/libxml/list.h:
+
+/usr/include/libxml2/libxml/xmlautomata.h:
+
+/usr/include/libxml2/libxml/entities.h:
+
+/usr/include/libxml2/libxml/encoding.h:
+
+/usr/include/iconv.h:
+
+/usr/include/libxml2/libxml/xmlIO.h:
+
+/usr/include/libxml2/libxml/SAX.h:
+
+/usr/include/libxml2/libxml/xlink.h:
+
+/usr/include/libxml2/libxml/SAX2.h:
+
+/usr/include/libxml2/libxml/relaxng.h:
+
+/usr/include/libxml2/libxml/xmlschemas.h:
+
+/usr/include/libxml2/libxml/xmlwriter.h:
+
+/usr/include/libxml2/libxml/xpath.h:
+
+/usr/include/libxml2/libxml/xpathInternals.h:

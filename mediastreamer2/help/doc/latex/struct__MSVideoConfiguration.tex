@@ -1,0 +1,45 @@
+\section{\-\_\-\-M\-S\-Video\-Configuration Struct Reference}
+\label{struct__MSVideoConfiguration}\index{\-\_\-\-M\-S\-Video\-Configuration@{\-\_\-\-M\-S\-Video\-Configuration}}
+
+
+{\ttfamily \#include $<$msvideo.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf required\-\_\-bitrate}
+\item 
+int {\bf bitrate\-\_\-limit}
+\item 
+M\-S\-Video\-Size {\bf vsize}
+\item 
+float {\bf fps}
+\item 
+void $\ast$ {\bf extra}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure describing a video configuration to be able to define a video size, a F\-P\-S and some other parameters according to the desired bitrate. 
+
+\subsection{Field Documentation}
+\index{\-\_\-\-M\-S\-Video\-Configuration@{\-\_\-\-M\-S\-Video\-Configuration}!required\-\_\-bitrate@{required\-\_\-bitrate}}
+\index{required\-\_\-bitrate@{required\-\_\-bitrate}!_MSVideoConfiguration@{\-\_\-\-M\-S\-Video\-Configuration}}
+\subsubsection[{required\-\_\-bitrate}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-M\-S\-Video\-Configuration\-::required\-\_\-bitrate}\label{struct__MSVideoConfiguration_a972faef0b419301d6cb23f29ac0183cf}
+The minimum bitrate required for the video configuration to be used. \index{\-\_\-\-M\-S\-Video\-Configuration@{\-\_\-\-M\-S\-Video\-Configuration}!bitrate\-\_\-limit@{bitrate\-\_\-limit}}
+\index{bitrate\-\_\-limit@{bitrate\-\_\-limit}!_MSVideoConfiguration@{\-\_\-\-M\-S\-Video\-Configuration}}
+\subsubsection[{bitrate\-\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-M\-S\-Video\-Configuration\-::bitrate\-\_\-limit}\label{struct__MSVideoConfiguration_abcd05a6fdc2a63e726f2c4eb33e726dd}
+The maximum bitrate to use when this video configuration is used. \index{\-\_\-\-M\-S\-Video\-Configuration@{\-\_\-\-M\-S\-Video\-Configuration}!vsize@{vsize}}
+\index{vsize@{vsize}!_MSVideoConfiguration@{\-\_\-\-M\-S\-Video\-Configuration}}
+\subsubsection[{vsize}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Video\-Size \-\_\-\-M\-S\-Video\-Configuration\-::vsize}\label{struct__MSVideoConfiguration_ab3d922aca4559e0eae2f2e9d9bfa86a3}
+The video size that is used when using this video configuration. \index{\-\_\-\-M\-S\-Video\-Configuration@{\-\_\-\-M\-S\-Video\-Configuration}!fps@{fps}}
+\index{fps@{fps}!_MSVideoConfiguration@{\-\_\-\-M\-S\-Video\-Configuration}}
+\subsubsection[{fps}]{\setlength{\rightskip}{0pt plus 5cm}float \-\_\-\-M\-S\-Video\-Configuration\-::fps}\label{struct__MSVideoConfiguration_a764c2a56149594003c91c4a287030e1e}
+The F\-P\-S that is used when using this video configuration. \index{\-\_\-\-M\-S\-Video\-Configuration@{\-\_\-\-M\-S\-Video\-Configuration}!extra@{extra}}
+\index{extra@{extra}!_MSVideoConfiguration@{\-\_\-\-M\-S\-Video\-Configuration}}
+\subsubsection[{extra}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \-\_\-\-M\-S\-Video\-Configuration\-::extra}\label{struct__MSVideoConfiguration_af04997ce53f0b157036274284146d0da}
+A pointer to some extra parameters that may be used by the encoder when using this video configuration. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+msvideo.\-h\end{DoxyCompactItemize}

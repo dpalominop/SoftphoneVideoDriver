@@ -1,0 +1,289 @@
+\section{Camera A\-P\-I -\/ manage video capture devices}
+\label{group__mediastreamer2__webcam}\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E}~{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}(M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-I\-D,0,const char)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \-\_\-\-M\-S\-Web\-Cam\-Manager {\bf M\-S\-Web\-Cam\-Manager}
+\item 
+typedef struct \-\_\-\-M\-S\-Web\-Cam\-Desc {\bf M\-S\-Web\-Cam\-Desc}
+\item 
+typedef struct \-\_\-\-M\-S\-Web\-Cam {\bf M\-S\-Web\-Cam}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf M\-S\-Web\-Cam\-Manager} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get} (void)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy} (void)
+\item 
+{\bf M\-S\-Web\-Cam} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, const char $\ast$id)
+\item 
+{\bf M\-S\-Web\-Cam} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m)
+\item 
+const M\-S\-List $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, {\bf M\-S\-Web\-Cam} $\ast$c)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, {\bf M\-S\-Web\-Cam} $\ast$c)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m, {\bf M\-S\-Web\-Cam\-Desc} $\ast$desc)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload} ({\bf M\-S\-Web\-Cam\-Manager} $\ast$m)
+\item 
+struct \-\_\-\-M\-S\-Filter $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader} ({\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+{\bf M\-S\-Web\-Cam} $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-new} ({\bf M\-S\-Web\-Cam\-Desc} $\ast$desc)
+\item 
+void {\bf ms\-\_\-web\-\_\-cam\-\_\-destroy} ({\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type} (const {\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name} (const {\bf M\-S\-Web\-Cam} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id} ({\bf M\-S\-Web\-Cam} $\ast$obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Macro Definition Documentation}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E@{M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E}}
+\index{M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E@{M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-S\-E\-T\-\_\-\-I\-M\-A\-G\-E~{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}(M\-S\-\_\-\-S\-T\-A\-T\-I\-C\-\_\-\-I\-M\-A\-G\-E\-\_\-\-I\-D,0,const char)}\label{group__mediastreamer2__webcam_ga3f67e63135392e599cd67c42ee4c5fce}
+method for the \char`\"{}nowebcam\char`\"{} filter 
+
+\subsection{Typedef Documentation}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!M\-S\-Web\-Cam\-Manager@{M\-S\-Web\-Cam\-Manager}}
+\index{M\-S\-Web\-Cam\-Manager@{M\-S\-Web\-Cam\-Manager}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{M\-S\-Web\-Cam\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Web\-Cam\-Manager}}\label{group__mediastreamer2__webcam_gaaef9856e51a7af781e179fd0a2194c6b}
+Structure for webcam manager object. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!M\-S\-Web\-Cam\-Desc@{M\-S\-Web\-Cam\-Desc}}
+\index{M\-S\-Web\-Cam\-Desc@{M\-S\-Web\-Cam\-Desc}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{M\-S\-Web\-Cam\-Desc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Web\-Cam\-Desc}}\label{group__mediastreamer2__webcam_gac3b2d36f3e03a917acfd7317df521da5}
+Structure for sound card description object. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!M\-S\-Web\-Cam@{M\-S\-Web\-Cam}}
+\index{M\-S\-Web\-Cam@{M\-S\-Web\-Cam}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{M\-S\-Web\-Cam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Web\-Cam}}\label{group__mediastreamer2__webcam_gaa86435c43223df186bba3828429d2d43}
+Structure for sound card object. 
+
+\subsection{Function Documentation}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Web\-Cam\-Manager}$\ast$ ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_gac2450a52121afa62a04d3a181749106a}
+Retreive a webcam manager object.
+
+Returns\-: M\-S\-Web\-Cam\-Manager if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_gad0bdda1b1d4103ab66e6894113f560ed}
+Destroy the webcam manager object. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Web\-Cam}$\ast$ ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-cam (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Manager} $\ast$}]{m, }
+\item[{const char $\ast$}]{id}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_ga81198680b1f43995497d97bc2a4ac21c}
+Retreive a webcam object based on its name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & A webcam manager containing webcam. \\
+\hline
+{\em id} & A name for card to search.\\
+\hline
+\end{DoxyParams}
+Returns\-: M\-S\-Web\-Cam if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Web\-Cam}$\ast$ ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-default\-\_\-cam (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Manager} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_gaf04de06bd612fc1d4a735d44c4f8091c}
+Retreive the default webcam object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & A webcam manager containing webcams.\\
+\hline
+\end{DoxyParams}
+Returns\-: M\-S\-Web\-Cam if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}const M\-S\-List$\ast$ ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-get\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Manager} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_ga312eb8452b0512d0cc269dd2c78e54c9}
+Retreive the list of webcam objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & A webcam manager containing webcams.\\
+\hline
+\end{DoxyParams}
+Returns\-: M\-S\-List of cards if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-add\-\_\-cam (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Manager} $\ast$}]{m, }
+\item[{{\bf M\-S\-Web\-Cam} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_gad2d3add8ced0a3e680263c242789d755}
+Add a webcam object in a webcam manager's list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & A webcam manager containing webcams \\
+\hline
+{\em c} & A web cam object. \\
+\hline
+\end{DoxyParams}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-prepend\-\_\-cam (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Manager} $\ast$}]{m, }
+\item[{{\bf M\-S\-Web\-Cam} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_ga4537fe9312fe9a647a724d48a7f54a7a}
+Add a webcam object on top of list of the webcam manager's list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & A webcam manager containing webcams \\
+\hline
+{\em c} & A web cam object. \\
+\hline
+\end{DoxyParams}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-register\-\_\-desc (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Manager} $\ast$}]{m, }
+\item[{{\bf M\-S\-Web\-Cam\-Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_gad9dc399856a42d88bce8131621d8e624}
+Register a webcam descriptor in a webcam manager.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & A webcam manager containing sound cards. \\
+\hline
+{\em desc} & A webcam descriptor object. \\
+\hline
+\end{DoxyParams}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload@{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-web\-\_\-cam\-\_\-manager\-\_\-reload (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Manager} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_gae179d044696ffc04bb6873f03e84b4ca}
+Ask all registered M\-S\-Web\-Cam\-Desc to detect the webcams again.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & A webcam manager \\
+\hline
+\end{DoxyParams}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader@{ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader@{ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader}]{\setlength{\rightskip}{0pt plus 5cm}struct \-\_\-\-M\-S\-Filter$\ast$ ms\-\_\-web\-\_\-cam\-\_\-create\-\_\-reader (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [read]}}\label{group__mediastreamer2__webcam_ga9f56789f84a638e162db7681141116c3}
+Create an I\-N\-P\-U\-T filter based on the selected camera.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & A webcam object.\\
+\hline
+\end{DoxyParams}
+Returns\-: A M\-S\-Filter if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-new@{ms\-\_\-web\-\_\-cam\-\_\-new}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-new@{ms\-\_\-web\-\_\-cam\-\_\-new}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Web\-Cam}$\ast$ ms\-\_\-web\-\_\-cam\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam\-Desc} $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_ga724d3f85cf299d9424b45b54b49c11db}
+Create a new webcam object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & A webcam description object.\\
+\hline
+\end{DoxyParams}
+Returns\-: M\-S\-Web\-Cam if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-destroy@{ms\-\_\-web\-\_\-cam\-\_\-destroy}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-destroy@{ms\-\_\-web\-\_\-cam\-\_\-destroy}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-web\-\_\-cam\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_gae0c162bbc2b3d8d94652610a2657f925}
+Destroy webcam object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & A M\-S\-Web\-Cam object. \\
+\hline
+\end{DoxyParams}
+\index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type@{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type@{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-driver\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{const {\bf M\-S\-Web\-Cam} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_ga391a7f96ec2827ddfece5e85aa9b84cc}
+Retreive a webcam's driver type string.
+
+Internal driver types are either\-: \char`\"{}\-V4\-L V4\-L\-V2\char`\"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & A webcam object.\\
+\hline
+\end{DoxyParams}
+Returns\-: a string if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name@{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name@{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const {\bf M\-S\-Web\-Cam} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_ga7651c3a20498ff4bf2500c88ba23cc05}
+Retreive a webcam's name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & A webcam object.\\
+\hline
+\end{DoxyParams}
+Returns\-: a string if successfull, N\-U\-L\-L otherwise. \index{Camera A\-P\-I -\/ manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}!ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id@{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id}}
+\index{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id@{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id}!Camera API - manage video capture devices@{Camera A\-P\-I -\/ manage video capture devices}}
+\subsubsection[{ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ms\-\_\-web\-\_\-cam\-\_\-get\-\_\-string\-\_\-id (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Web\-Cam} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__webcam_ga2956ae70b19ecc39b793b08153b88a26}
+Retreive webcam's id\-: (\begin{DoxyParagraph}{driver\-\_\-type\-:}
+
+\end{DoxyParagraph}
+name).
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & A webcam object.\\
+\hline
+\end{DoxyParams}
+Returns\-: A string if successfull, N\-U\-L\-L otherwise. 

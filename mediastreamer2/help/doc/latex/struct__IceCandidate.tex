@@ -1,0 +1,58 @@
+\section{\-\_\-\-Ice\-Candidate Struct Reference}
+\label{struct__IceCandidate}\index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}}
+
+
+{\ttfamily \#include $<$ice.\-h$>$}
+
+
+
+Collaboration diagram for \-\_\-\-Ice\-Candidate\-:
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char {\bf foundation} [32]
+\item 
+{\bf Ice\-Transport\-Address} {\bf taddr}
+\item 
+{\bf Ice\-Candidate\-Type} {\bf type}
+\item 
+uint32\-\_\-t {\bf priority}
+\item 
+uint16\-\_\-t {\bf component\-I\-D}
+\item 
+struct {\bf \-\_\-\-Ice\-Candidate} $\ast$ {\bf base}
+\item 
+bool\-\_\-t {\bf is\-\_\-default}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure representing an I\-C\-E candidate. 
+
+\subsection{Field Documentation}
+\index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}!foundation@{foundation}}
+\index{foundation@{foundation}!_IceCandidate@{\-\_\-\-Ice\-Candidate}}
+\subsubsection[{foundation}]{\setlength{\rightskip}{0pt plus 5cm}char \-\_\-\-Ice\-Candidate\-::foundation[32]}\label{struct__IceCandidate_a9a0efb52ab0c3af220d49caf61e28162}
+Foundation of the candidate (see paragraph 3 of the R\-F\-C 5245 for more details \index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}!taddr@{taddr}}
+\index{taddr@{taddr}!_IceCandidate@{\-\_\-\-Ice\-Candidate}}
+\subsubsection[{taddr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ice\-Transport\-Address} \-\_\-\-Ice\-Candidate\-::taddr}\label{struct__IceCandidate_a4297288cc2d0127fb346031078e75a63}
+Transport address of the candidate \index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}!type@{type}}
+\index{type@{type}!_IceCandidate@{\-\_\-\-Ice\-Candidate}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ice\-Candidate\-Type} \-\_\-\-Ice\-Candidate\-::type}\label{struct__IceCandidate_a40fd8e97d3153bc1206030e59b89f0f7}
+Type of the candidate \index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}!priority@{priority}}
+\index{priority@{priority}!_IceCandidate@{\-\_\-\-Ice\-Candidate}}
+\subsubsection[{priority}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-\-Ice\-Candidate\-::priority}\label{struct__IceCandidate_aad4c4e08afff5c03e553894f0c1a4e43}
+Priority of the candidate \index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}!component\-I\-D@{component\-I\-D}}
+\index{component\-I\-D@{component\-I\-D}!_IceCandidate@{\-\_\-\-Ice\-Candidate}}
+\subsubsection[{component\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t \-\_\-\-Ice\-Candidate\-::component\-I\-D}\label{struct__IceCandidate_af6fe32c2614ae53a3bd2b011b242742a}
+component I\-D between 1 and 256\-: usually 1 for R\-T\-P component and 2 for R\-T\-C\-P component \index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}!base@{base}}
+\index{base@{base}!_IceCandidate@{\-\_\-\-Ice\-Candidate}}
+\subsubsection[{base}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-\_\-\-Ice\-Candidate}$\ast$ \-\_\-\-Ice\-Candidate\-::base}\label{struct__IceCandidate_ad14144870c6579183cabb7f7fb5086d4}
+Pointer to the candidate that is the base of the current one \index{\-\_\-\-Ice\-Candidate@{\-\_\-\-Ice\-Candidate}!is\-\_\-default@{is\-\_\-default}}
+\index{is\-\_\-default@{is\-\_\-default}!_IceCandidate@{\-\_\-\-Ice\-Candidate}}
+\subsubsection[{is\-\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}bool\-\_\-t \-\_\-\-Ice\-Candidate\-::is\-\_\-default}\label{struct__IceCandidate_aa326e8dca696ab5311c8316133da5937}
+Boolean value telling whether this candidate is a default candidate or not 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+{\bf ice.\-h}\end{DoxyCompactItemize}

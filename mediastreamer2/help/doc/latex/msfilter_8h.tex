@@ -1,0 +1,180 @@
+\section{msfilter.\-h File Reference}
+\label{msfilter_8h}\index{msfilter.\-h@{msfilter.\-h}}
+
+
+mediastreamer2 \doxyref{msfilter.\-h}{p.}{msfilter_8h} include file  
+
+
+{\ttfamily \#include \char`\"{}mscommon.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}msqueue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}allfilters.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}msinterfaces.\-h\char`\"{}}\\*
+Include dependency graph for msfilter.\-h\-:
+This graph shows which files directly or indirectly include this file\-:
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D}(\-\_\-id\-\_\-, \-\_\-count\-\_\-, \-\_\-argtype\-\_\-)~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-I\-D(\-\_\-id\-\_\-,\-\_\-count\-\_\-,sizeof(\-\_\-argtype\-\_\-))
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-N\-O\-\_\-\-A\-R\-G}(\-\_\-id\-\_\-, \-\_\-count\-\_\-)~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-M\-E\-T\-H\-O\-D\-\_\-\-I\-D(\-\_\-id\-\_\-,\-\_\-count\-\_\-,0)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(0,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-S\-A\-M\-P\-L\-E\-\_\-\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(1,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-S\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(2,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-B\-I\-T\-R\-A\-T\-E}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(3,int)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-A\-D\-D\-\_\-\-F\-M\-T\-P}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(7,const char)
+\item 
+\#define {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-G\-E\-T\-\_\-\-L\-A\-T\-E\-N\-C\-Y}~M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-B\-A\-S\-E\-\_\-\-M\-E\-T\-H\-O\-D(11,int)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ {\bf M\-S\-Filter\-Func} )(struct \-\_\-\-M\-S\-Filter $\ast$f)
+\item 
+typedef int($\ast$ {\bf M\-S\-Filter\-Method\-Func} )(struct \-\_\-\-M\-S\-Filter $\ast$f, void $\ast$arg)
+\item 
+typedef void($\ast$ {\bf M\-S\-Filter\-Notify\-Func} )(void $\ast$userdata, struct \-\_\-\-M\-S\-Filter $\ast$f, unsigned int id, void $\ast$arg)
+\item 
+typedef enum {\bf \-\_\-\-M\-S\-Filter\-Interface\-Id} {\bf M\-S\-Filter\-Interface\-Id}
+\item 
+typedef struct \-\_\-\-M\-S\-Filter\-Method {\bf M\-S\-Filter\-Method}
+\item 
+typedef enum {\bf \-\_\-\-M\-S\-Filter\-Category} {\bf M\-S\-Filter\-Category}
+\item 
+typedef enum {\bf \-\_\-\-M\-S\-Filter\-Flags} {\bf M\-S\-Filter\-Flags}
+\item 
+typedef struct \-\_\-\-M\-S\-Filter\-Desc {\bf M\-S\-Filter\-Desc}
+\item 
+typedef struct \-\_\-\-M\-S\-Filter {\bf M\-S\-Filter}
+\item 
+typedef struct \-\_\-\-M\-S\-Connection\-Point {\bf M\-S\-Connection\-Point}
+\item 
+typedef struct \-\_\-\-M\-S\-Connection\-Helper {\bf M\-S\-Connection\-Helper}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \-\_\-\-M\-S\-Filter\-Interface\-Id} \{ , \\*
+{\bf M\-S\-Filter\-Player\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Recorder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Video\-Display\-Interface}
+, \\*
+{\bf M\-S\-Filter\-Video\-Decoder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Video\-Capture\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Audio\-Decoder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Video\-Encoder\-Interface}, 
+\\*
+{\bf M\-S\-Filter\-Audio\-Capture\-Interface}
+, \\*
+{\bf M\-S\-Filter\-Audio\-Encoder\-Interface}
+ \}
+\item 
+enum {\bf \-\_\-\-M\-S\-Filter\-Category} \{ \\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-O\-T\-H\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-E\-N\-C\-O\-D\-I\-N\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-R}, 
+\\*
+{\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-D\-E\-C\-O\-D\-I\-N\-G\-\_\-\-R\-E\-N\-D\-E\-R\-E\-R}
+ \}
+\item 
+enum {\bf \-\_\-\-M\-S\-Filter\-Flags} \{ {\bf M\-S\-\_\-\-F\-I\-L\-T\-E\-R\-\_\-\-I\-S\-\_\-\-P\-U\-M\-P} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf ms\-\_\-filter\-\_\-register} ({\bf M\-S\-Filter\-Desc} $\ast$desc)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-encoding\-\_\-capturer} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-decoding\-\_\-renderer} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-encoder} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-decoder} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter\-Desc} $\ast$ {\bf ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-name} (const char $\ast$filter\-\_\-name)
+\item 
+M\-S\-List $\ast$ {\bf ms\-\_\-filter\-\_\-lookup\-\_\-by\-\_\-interface} ({\bf M\-S\-Filter\-Interface\-Id} id)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-create\-\_\-encoder} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-create\-\_\-decoder} (const char $\ast$mime)
+\item 
+bool\-\_\-t {\bf ms\-\_\-filter\-\_\-codec\-\_\-supported} (const char $\ast$mime)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-new} (M\-S\-Filter\-Id id)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-name} (const char $\ast$name)
+\item 
+{\bf M\-S\-Filter} $\ast$ {\bf ms\-\_\-filter\-\_\-new\-\_\-from\-\_\-desc} ({\bf M\-S\-Filter\-Desc} $\ast$desc)
+\item 
+int {\bf ms\-\_\-filter\-\_\-link} ({\bf M\-S\-Filter} $\ast$f1, int pin1, {\bf M\-S\-Filter} $\ast$f2, int pin2)
+\item 
+int {\bf ms\-\_\-filter\-\_\-unlink} ({\bf M\-S\-Filter} $\ast$f1, int pin1, {\bf M\-S\-Filter} $\ast$f2, int pin2)
+\item 
+int {\bf ms\-\_\-filter\-\_\-call\-\_\-method} ({\bf M\-S\-Filter} $\ast$f, unsigned int id, void $\ast$arg)
+\item 
+int {\bf ms\-\_\-filter\-\_\-call\-\_\-method\-\_\-noarg} ({\bf M\-S\-Filter} $\ast$f, unsigned int id)
+\item 
+bool\-\_\-t {\bf ms\-\_\-filter\-\_\-has\-\_\-method} ({\bf M\-S\-Filter} $\ast$f, unsigned int id)
+\item 
+void {\bf ms\-\_\-filter\-\_\-set\-\_\-notify\-\_\-callback} ({\bf M\-S\-Filter} $\ast$f, {\bf M\-S\-Filter\-Notify\-Func} fn, void $\ast$userdata)
+\item 
+M\-S\-Filter\-Id {\bf ms\-\_\-filter\-\_\-get\-\_\-id} ({\bf M\-S\-Filter} $\ast$f)
+\item 
+M\-S\-List $\ast$ {\bf ms\-\_\-filter\-\_\-find\-\_\-neighbours} ({\bf M\-S\-Filter} $\ast$me)
+\item 
+void {\bf ms\-\_\-filter\-\_\-destroy} ({\bf M\-S\-Filter} $\ast$f)
+\item 
+void {\bf ms\-\_\-connection\-\_\-helper\-\_\-start} ({\bf M\-S\-Connection\-Helper} $\ast$h)
+\item 
+int {\bf ms\-\_\-connection\-\_\-helper\-\_\-link} ({\bf M\-S\-Connection\-Helper} $\ast$h, {\bf M\-S\-Filter} $\ast$f, int inpin, int outpin)
+\begin{DoxyCompactList}\small\item\em Enter a M\-S\-Filter to be connected into the M\-S\-Connection\-Helper object. \end{DoxyCompactList}\item 
+int {\bf ms\-\_\-connection\-\_\-helper\-\_\-unlink} ({\bf M\-S\-Connection\-Helper} $\ast$h, {\bf M\-S\-Filter} $\ast$f, int inpin, int outpin)\label{group__mediastreamer2__filter_ga4edec12d0853c3773cf89783d4e6415e}
+
+\begin{DoxyCompactList}\small\item\em Enter a M\-S\-Filter to be disconnected into the M\-S\-Connection\-Helper object. Process exactly the same way as \doxyref{ms\-\_\-connection\-\_\-helper\-\_\-link()}{p.}{group__mediastreamer2__filter_ga83c60765bfda1674f419c6f2686274b9} but calls \doxyref{ms\-\_\-filter\-\_\-unlink()}{p.}{group__mediastreamer2__filter_ga41d3d0194e8e925097a8e663a544de1b} on the entered filters. \end{DoxyCompactList}\item 
+void {\bf ms\-\_\-filter\-\_\-enable\-\_\-statistics} (bool\-\_\-t enabled)\label{group__mediastreamer2__filter_gaa5cd1d9de53863e3151f25e3c5f303a8}
+
+\begin{DoxyCompactList}\small\item\em Enable processing time measurements statistics for filters. \end{DoxyCompactList}\item 
+void {\bf ms\-\_\-filter\-\_\-reset\-\_\-statistics} (void)\label{group__mediastreamer2__filter_gad1ceb3036597d4745d51e8e797236513}
+
+\begin{DoxyCompactList}\small\item\em Reset processing time statistics for filters. \end{DoxyCompactList}\item 
+const M\-S\-List $\ast$ {\bf ms\-\_\-filter\-\_\-get\-\_\-statistics} (void)\label{group__mediastreamer2__filter_gaf30c049e9901ad50dca99c2573cade7e}
+
+\begin{DoxyCompactList}\small\item\em Retrieves statistics for running filters. Returns a list of M\-S\-Filter\-Stats. \end{DoxyCompactList}\item 
+void {\bf ms\-\_\-filter\-\_\-log\-\_\-statistics} (void)\label{group__mediastreamer2__filter_ga3c1a6d38d8243d9cff8d5a0be32ab346}
+
+\begin{DoxyCompactList}\small\item\em Logs runtime statistics for running filters. \end{DoxyCompactList}\item 
+void {\bf ms\-\_\-filter\-\_\-postpone\-\_\-task} ({\bf M\-S\-Filter} $\ast$f, {\bf M\-S\-Filter\-Func} taskfunc)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{msfilter.\-h}{p.}{msfilter_8h} include file This file provide the A\-P\-I needed to create, link, unlink, find and destroy filter.
+
+It also provides definitions if you wish to implement your own filters. 
+
+\subsection{Function Documentation}
+\index{msfilter.\-h@{msfilter.\-h}!ms\-\_\-filter\-\_\-postpone\-\_\-task@{ms\-\_\-filter\-\_\-postpone\-\_\-task}}
+\index{ms\-\_\-filter\-\_\-postpone\-\_\-task@{ms\-\_\-filter\-\_\-postpone\-\_\-task}!msfilter.h@{msfilter.\-h}}
+\subsubsection[{ms\-\_\-filter\-\_\-postpone\-\_\-task}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-filter\-\_\-postpone\-\_\-task (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Filter} $\ast$}]{f, }
+\item[{{\bf M\-S\-Filter\-Func}}]{taskfunc}
+\end{DoxyParamCaption}
+)}\label{msfilter_8h_af7bb1fad99b1546d7e12d19f88e58114}
+Allow a filter to request the ticker to call him the tick after. The ticker will call the taskfunc prior to all filter's process func. 

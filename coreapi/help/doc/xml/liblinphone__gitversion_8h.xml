@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.3.1">
+  <compounddef id="liblinphone__gitversion_8h" kind="file">
+    <compoundname>liblinphone_gitversion.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="liblinphone__gitversion_8h_1a64f597d04e2ddd51b757c57640d0de2e" prot="public" static="no">
+        <name>LIBLINPHONE_GIT_VERSION</name>
+        <initializer>&quot;3.7.0_HEAD&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dpalominop/Linphone/linphone-3.7.0/coreapi/liblinphone_gitversion.h" line="1" bodyfile="/home/dpalominop/Linphone/linphone-3.7.0/coreapi/liblinphone_gitversion.h" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#define<sp/>LIBLINPHONE_GIT_VERSION<sp/>&quot;3.7.0_HEAD&quot;</highlight></codeline>
+    </programlisting>
+    <location file="/home/dpalominop/Linphone/linphone-3.7.0/coreapi/liblinphone_gitversion.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,71 @@
+\section{msticker.\-h File Reference}
+\label{msticker_8h}\index{msticker.\-h@{msticker.\-h}}
+
+
+mediastreamer2 \doxyref{msticker.\-h}{p.}{msticker_8h} include file  
+
+
+{\ttfamily \#include $<$mediastreamer2/msfilter.\-h$>$}\\*
+Include dependency graph for msticker.\-h\-:
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint64\-\_\-t($\ast$ {\bf M\-S\-Ticker\-Time\-Func} )(void $\ast$)
+\item 
+typedef int($\ast$ {\bf M\-S\-Ticker\-Tick\-Func} )(void $\ast$, uint64\-\_\-t ticker\-\_\-virtual\-\_\-time)
+\item 
+typedef struct \-\_\-\-M\-S\-Ticker {\bf M\-S\-Ticker}
+\item 
+typedef struct \\*
+\-\_\-\-M\-S\-Ticker\-Synchronizer {\bf M\-S\-Ticker\-Synchronizer}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \-\_\-\-M\-S\-Ticker\-Prio} \{ \\*
+{\bf M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-N\-O\-R\-M\-A\-L}, 
+\\*
+{\bf M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-H\-I\-G\-H}, 
+\\*
+{\bf M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-R\-E\-A\-L\-T\-I\-M\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf M\-S\-Ticker} $\ast$ {\bf ms\-\_\-ticker\-\_\-new} (void)
+\item 
+{\bf M\-S\-Ticker} $\ast$ {\bf ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params} (const M\-S\-Ticker\-Params $\ast$params)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-name} ({\bf M\-S\-Ticker} $\ast$ticker, const char $\ast$name)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-priority} ({\bf M\-S\-Ticker} $\ast$ticker, M\-S\-Ticker\-Prio prio)
+\item 
+int {\bf ms\-\_\-ticker\-\_\-attach} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Filter} $\ast$f)
+\item 
+int {\bf ms\-\_\-ticker\-\_\-attach\-\_\-multiple} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Filter} $\ast$f,...)
+\item 
+int {\bf ms\-\_\-ticker\-\_\-detach} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Filter} $\ast$f)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-destroy} ({\bf M\-S\-Ticker} $\ast$ticker)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Ticker\-Time\-Func} func, void $\ast$user\-\_\-data)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Ticker\-Tick\-Func} func, void $\ast$user\-\_\-data)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-print\-\_\-graphs} ({\bf M\-S\-Ticker} $\ast$ticker)
+\item 
+float {\bf ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load} ({\bf M\-S\-Ticker} $\ast$ticker)
+\item 
+{\bf M\-S\-Ticker\-Synchronizer} $\ast$ {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-new} (void)
+\item 
+double {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time} ({\bf M\-S\-Ticker\-Synchronizer} $\ast$ts, const M\-S\-Time\-Spec $\ast$time)
+\item 
+uint64\-\_\-t {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time} ({\bf M\-S\-Ticker\-Synchronizer} $\ast$ts)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy} ({\bf M\-S\-Ticker\-Synchronizer} $\ast$ts)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{msticker.\-h}{p.}{msticker_8h} include file This file provide the A\-P\-I needed to create, start and stop a graph. 

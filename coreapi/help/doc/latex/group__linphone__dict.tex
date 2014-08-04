@@ -1,0 +1,36 @@
+\section{Linphone\-\_\-dict}
+\label{group__linphone__dict}\index{Linphone\-\_\-dict@{Linphone\-\_\-dict}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Linphone\-Dictionary $\ast$ {\bf lp\-\_\-config\-\_\-section\-\_\-to\-\_\-dict} (const {\bf Lp\-Config} $\ast$lpconfig, const char $\ast$section)
+\item 
+void {\bf lp\-\_\-config\-\_\-load\-\_\-dict\-\_\-to\-\_\-section} ({\bf Lp\-Config} $\ast$lpconfig, const char $\ast$section, const Linphone\-Dictionary $\ast$dict)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\index{Linphone\-\_\-dict@{Linphone\-\_\-dict}!lp\-\_\-config\-\_\-section\-\_\-to\-\_\-dict@{lp\-\_\-config\-\_\-section\-\_\-to\-\_\-dict}}
+\index{lp\-\_\-config\-\_\-section\-\_\-to\-\_\-dict@{lp\-\_\-config\-\_\-section\-\_\-to\-\_\-dict}!Linphone_dict@{Linphone\-\_\-dict}}
+\subsubsection[{lp\-\_\-config\-\_\-section\-\_\-to\-\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}Linphone\-Dictionary$\ast$ lp\-\_\-config\-\_\-section\-\_\-to\-\_\-dict (
+\begin{DoxyParamCaption}
+\item[{const {\bf Lp\-Config} $\ast$}]{lpconfig, }
+\item[{const char $\ast$}]{section}
+\end{DoxyParamCaption}
+)}\label{group__linphone__dict_ga2b34635519119512c9c99fd4813c02a9}
+Converts a config section into a dictionary. \begin{DoxyReturn}{Returns}
+a \#\-Linphone\-Dictionary with all the keys from a section, or N\-U\-L\-L if the section doesn't exist 
+\end{DoxyReturn}
+\index{Linphone\-\_\-dict@{Linphone\-\_\-dict}!lp\-\_\-config\-\_\-load\-\_\-dict\-\_\-to\-\_\-section@{lp\-\_\-config\-\_\-load\-\_\-dict\-\_\-to\-\_\-section}}
+\index{lp\-\_\-config\-\_\-load\-\_\-dict\-\_\-to\-\_\-section@{lp\-\_\-config\-\_\-load\-\_\-dict\-\_\-to\-\_\-section}!Linphone_dict@{Linphone\-\_\-dict}}
+\subsubsection[{lp\-\_\-config\-\_\-load\-\_\-dict\-\_\-to\-\_\-section}]{\setlength{\rightskip}{0pt plus 5cm}void lp\-\_\-config\-\_\-load\-\_\-dict\-\_\-to\-\_\-section (
+\begin{DoxyParamCaption}
+\item[{{\bf Lp\-Config} $\ast$}]{lpconfig, }
+\item[{const char $\ast$}]{section, }
+\item[{const Linphone\-Dictionary $\ast$}]{dict}
+\end{DoxyParamCaption}
+)}\label{group__linphone__dict_ga7d5d0600002c3cca6423d08b8a5baaa0}
+Loads a dictionary into a section of the lpconfig. If the section doesn't exist it is created. Overwrites existing keys, creates non-\/existing keys. 

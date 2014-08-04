@@ -1,0 +1,48 @@
+.TH "_MSVideoConfiguration" 3 "Tue May 13 2014" "Version 2.10.0" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_MSVideoConfiguration \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <msvideo\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBrequired_bitrate\fP"
+.br
+.ti -1c
+.RI "int \fBbitrate_limit\fP"
+.br
+.ti -1c
+.RI "MSVideoSize \fBvsize\fP"
+.br
+.ti -1c
+.RI "float \fBfps\fP"
+.br
+.ti -1c
+.RI "void * \fBextra\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure describing a video configuration to be able to define a video size, a FPS and some other parameters according to the desired bitrate\&. 
+.SH "Field Documentation"
+.PP 
+.SS "int _MSVideoConfiguration::required_bitrate"
+The minimum bitrate required for the video configuration to be used\&. 
+.SS "int _MSVideoConfiguration::bitrate_limit"
+The maximum bitrate to use when this video configuration is used\&. 
+.SS "MSVideoSize _MSVideoConfiguration::vsize"
+The video size that is used when using this video configuration\&. 
+.SS "float _MSVideoConfiguration::fps"
+The FPS that is used when using this video configuration\&. 
+.SS "void* _MSVideoConfiguration::extra"
+A pointer to some extra parameters that may be used by the encoder when using this video configuration\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code\&.

@@ -1,0 +1,102 @@
+\section{mssndcard.\-h File Reference}
+\label{mssndcard_8h}\index{mssndcard.\-h@{mssndcard.\-h}}
+
+
+mediastreamer2 \doxyref{mssndcard.\-h}{p.}{mssndcard_8h} include file  
+
+
+{\ttfamily \#include $<$mediastreamer2/mscommon.\-h$>$}\\*
+Include dependency graph for mssndcard.\-h\-:
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-D\-I\-S\-A\-B\-L\-E\-D}~(0)
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-C\-A\-P\-T\-U\-R\-E}~(1)
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-P\-L\-A\-Y\-B\-A\-C\-K}~(1$<$$<$1)
+\item 
+\#define {\bf M\-S\-\_\-\-S\-N\-D\-\_\-\-C\-A\-R\-D\-\_\-\-C\-A\-P\-\_\-\-B\-U\-I\-L\-T\-I\-N\-\_\-\-E\-C\-H\-O\-\_\-\-C\-A\-N\-C\-E\-L\-L\-E\-R}~(1$<$$<$2)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \-\_\-\-M\-S\-Snd\-Card\-Manager {\bf M\-S\-Snd\-Card\-Manager}
+\item 
+typedef enum \-\_\-\-M\-S\-Snd\-Card\-Mixer\-Elem {\bf M\-S\-Snd\-Card\-Mixer\-Elem}
+\item 
+typedef enum \-\_\-\-M\-S\-Snd\-Card\-Capture {\bf M\-S\-Snd\-Card\-Capture}
+\item 
+typedef enum \-\_\-\-M\-S\-Snd\-Card\-Control\-Elem {\bf M\-S\-Snd\-Card\-Control\-Elem}
+\item 
+typedef struct \-\_\-\-M\-S\-Snd\-Card\-Desc {\bf M\-S\-Snd\-Card\-Desc}
+\item 
+typedef struct \-\_\-\-M\-S\-Snd\-Card {\bf M\-S\-Snd\-Card}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf M\-S\-Snd\-Card\-Manager} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-get} (void)
+\item 
+void {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-destroy} (void)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-get\-\_\-card} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m, const char $\ast$id)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-get\-\_\-default\-\_\-card} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-get\-\_\-default\-\_\-capture\-\_\-card} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-get\-\_\-default\-\_\-playback\-\_\-card} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m)
+\item 
+const M\-S\-List $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-get\-\_\-list} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m)
+\item 
+void {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-add\-\_\-card} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m, {\bf M\-S\-Snd\-Card} $\ast$c)
+\item 
+void {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-register\-\_\-desc} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m, {\bf M\-S\-Snd\-Card\-Desc} $\ast$desc)
+\item 
+void {\bf ms\-\_\-snd\-\_\-card\-\_\-manager\-\_\-reload} ({\bf M\-S\-Snd\-Card\-Manager} $\ast$m)
+\item 
+struct \-\_\-\-M\-S\-Filter $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-create\-\_\-reader} ({\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+struct \-\_\-\-M\-S\-Filter $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-create\-\_\-writer} ({\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-new} ({\bf M\-S\-Snd\-Card\-Desc} $\ast$desc)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-new\-\_\-with\-\_\-name} ({\bf M\-S\-Snd\-Card\-Desc} $\ast$desc, const char $\ast$name)
+\item 
+void {\bf ms\-\_\-snd\-\_\-card\-\_\-destroy} ({\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-dup} ({\bf M\-S\-Snd\-Card} $\ast$card)
+\item 
+const char $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-driver\-\_\-type} (const {\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-name} (const {\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+const char $\ast$ {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-string\-\_\-id} ({\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+unsigned int {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-capabilities} (const {\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+int {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-minimal\-\_\-latency} ({\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+void {\bf ms\-\_\-snd\-\_\-card\-\_\-set\-\_\-level} ({\bf M\-S\-Snd\-Card} $\ast$obj, {\bf M\-S\-Snd\-Card\-Mixer\-Elem} e, int percent)
+\item 
+int {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-level} ({\bf M\-S\-Snd\-Card} $\ast$obj, {\bf M\-S\-Snd\-Card\-Mixer\-Elem} e)
+\item 
+void {\bf ms\-\_\-snd\-\_\-card\-\_\-set\-\_\-capture} ({\bf M\-S\-Snd\-Card} $\ast$obj, {\bf M\-S\-Snd\-Card\-Capture} c)
+\item 
+int {\bf ms\-\_\-snd\-\_\-card\-\_\-set\-\_\-control} ({\bf M\-S\-Snd\-Card} $\ast$obj, {\bf M\-S\-Snd\-Card\-Control\-Elem} e, int val)
+\item 
+int {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-control} ({\bf M\-S\-Snd\-Card} $\ast$obj, {\bf M\-S\-Snd\-Card\-Control\-Elem} e)
+\item 
+int {\bf ms\-\_\-snd\-\_\-card\-\_\-get\-\_\-preferred\-\_\-sample\-\_\-rate} (const {\bf M\-S\-Snd\-Card} $\ast$obj)
+\item 
+int {\bf ms\-\_\-snd\-\_\-card\-\_\-set\-\_\-preferred\-\_\-sample\-\_\-rate} ({\bf M\-S\-Snd\-Card} $\ast$obj, int rate)
+\item 
+{\bf M\-S\-Snd\-Card} $\ast$ {\bf ms\-\_\-alsa\-\_\-card\-\_\-new\-\_\-custom} (const char $\ast$pcmdev, const char $\ast$mixdev)
+\item 
+void {\bf ms\-\_\-alsa\-\_\-card\-\_\-set\-\_\-forced\-\_\-sample\-\_\-rate} (int samplerate)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+mediastreamer2 \doxyref{mssndcard.\-h}{p.}{mssndcard_8h} include file This file provide the A\-P\-I needed to manage soundcard filters. 

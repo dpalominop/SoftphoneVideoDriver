@@ -1,0 +1,320 @@
+\section{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}
+\label{group__mediastreamer2__ticker}\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+
+
+Ticker A\-P\-I to manage mediastreamer2 graphs.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint64\-\_\-t($\ast$ {\bf M\-S\-Ticker\-Time\-Func} )(void $\ast$)
+\item 
+typedef int($\ast$ {\bf M\-S\-Ticker\-Tick\-Func} )(void $\ast$, uint64\-\_\-t ticker\-\_\-virtual\-\_\-time)
+\item 
+typedef struct \-\_\-\-M\-S\-Ticker {\bf M\-S\-Ticker}
+\item 
+typedef struct \\*
+\-\_\-\-M\-S\-Ticker\-Synchronizer {\bf M\-S\-Ticker\-Synchronizer}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \-\_\-\-M\-S\-Ticker\-Prio} \{ \\*
+{\bf M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-N\-O\-R\-M\-A\-L}, 
+\\*
+{\bf M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-H\-I\-G\-H}, 
+\\*
+{\bf M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-R\-E\-A\-L\-T\-I\-M\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf M\-S\-Ticker} $\ast$ {\bf ms\-\_\-ticker\-\_\-new} (void)
+\item 
+{\bf M\-S\-Ticker} $\ast$ {\bf ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params} (const M\-S\-Ticker\-Params $\ast$params)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-name} ({\bf M\-S\-Ticker} $\ast$ticker, const char $\ast$name)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-priority} ({\bf M\-S\-Ticker} $\ast$ticker, M\-S\-Ticker\-Prio prio)
+\item 
+int {\bf ms\-\_\-ticker\-\_\-attach} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Filter} $\ast$f)
+\item 
+int {\bf ms\-\_\-ticker\-\_\-attach\-\_\-multiple} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Filter} $\ast$f,...)
+\item 
+int {\bf ms\-\_\-ticker\-\_\-detach} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Filter} $\ast$f)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-destroy} ({\bf M\-S\-Ticker} $\ast$ticker)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Ticker\-Time\-Func} func, void $\ast$user\-\_\-data)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func} ({\bf M\-S\-Ticker} $\ast$ticker, {\bf M\-S\-Ticker\-Tick\-Func} func, void $\ast$user\-\_\-data)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-print\-\_\-graphs} ({\bf M\-S\-Ticker} $\ast$ticker)
+\item 
+float {\bf ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load} ({\bf M\-S\-Ticker} $\ast$ticker)
+\item 
+{\bf M\-S\-Ticker\-Synchronizer} $\ast$ {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-new} (void)
+\item 
+double {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time} ({\bf M\-S\-Ticker\-Synchronizer} $\ast$ts, const M\-S\-Time\-Spec $\ast$time)
+\item 
+uint64\-\_\-t {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time} ({\bf M\-S\-Ticker\-Synchronizer} $\ast$ts)
+\item 
+void {\bf ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy} ({\bf M\-S\-Ticker\-Synchronizer} $\ast$ts)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Ticker A\-P\-I to manage mediastreamer2 graphs. Describes the ticker A\-P\-I. The ticker is the thread responsible for scheduling audio \& video processing for one or several filter graphs. 
+
+\subsection{Typedef Documentation}
+\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!M\-S\-Ticker\-Time\-Func@{M\-S\-Ticker\-Time\-Func}}
+\index{M\-S\-Ticker\-Time\-Func@{M\-S\-Ticker\-Time\-Func}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{M\-S\-Ticker\-Time\-Func}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Ticker\-Time\-Func}\label{group__mediastreamer2__ticker_gaf797c03ae14397dabec29aed425f614e}
+Function pointer for method getting time in miliseconds from an external source. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!M\-S\-Ticker\-Tick\-Func@{M\-S\-Ticker\-Tick\-Func}}
+\index{M\-S\-Ticker\-Tick\-Func@{M\-S\-Ticker\-Tick\-Func}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{M\-S\-Ticker\-Tick\-Func}]{\setlength{\rightskip}{0pt plus 5cm}M\-S\-Ticker\-Tick\-Func}\label{group__mediastreamer2__ticker_gabc9140d942df71ed918dfb3b93f17463}
+Function pointer for method waiting next tick from an external source.
+
+It shall return the number of late milliseconds, if this value is known. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!M\-S\-Ticker@{M\-S\-Ticker}}
+\index{M\-S\-Ticker@{M\-S\-Ticker}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{M\-S\-Ticker}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Ticker}}\label{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3}
+Structure for ticker object. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!M\-S\-Ticker\-Synchronizer@{M\-S\-Ticker\-Synchronizer}}
+\index{M\-S\-Ticker\-Synchronizer@{M\-S\-Ticker\-Synchronizer}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{M\-S\-Ticker\-Synchronizer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Ticker\-Synchronizer}}\label{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f}
+Structure for ticker synchronizer object. 
+
+\subsection{Enumeration Type Documentation}
+\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!\-\_\-\-M\-S\-Ticker\-Prio@{\-\_\-\-M\-S\-Ticker\-Prio}}
+\index{\-\_\-\-M\-S\-Ticker\-Prio@{\-\_\-\-M\-S\-Ticker\-Prio}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{\-\_\-\-M\-S\-Ticker\-Prio}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-M\-S\-Ticker\-Prio}}\label{group__mediastreamer2__ticker_gad69f661f1db2a4e8cb6be3c160b282bc}
+Enum for ticker priority \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-N\-O\-R\-M\-A\-L@{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-N\-O\-R\-M\-A\-L}!Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-N\-O\-R\-M\-A\-L@{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-N\-O\-R\-M\-A\-L}}\item[{\em 
+M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-N\-O\-R\-M\-A\-L\label{group__mediastreamer2__ticker_ggad69f661f1db2a4e8cb6be3c160b282bca6283d7852d272587a67728422f969b09}
+}]the default O\-S priority for threads \index{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-H\-I\-G\-H@{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-H\-I\-G\-H}!Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-H\-I\-G\-H@{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-H\-I\-G\-H}}\item[{\em 
+M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-H\-I\-G\-H\label{group__mediastreamer2__ticker_ggad69f661f1db2a4e8cb6be3c160b282bcaad33b5ea171c69063eb3cad2ba21c1a4}
+}]Increased priority\-: done by setpriority() or sched\-\_\-setschedparams() with S\-C\-H\-E\-D\-\_\-\-R\-R on linux/\-Mac\-O\-S \index{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-R\-E\-A\-L\-T\-I\-M\-E@{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-R\-E\-A\-L\-T\-I\-M\-E}!Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-R\-E\-A\-L\-T\-I\-M\-E@{M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-R\-E\-A\-L\-T\-I\-M\-E}}\item[{\em 
+M\-S\-\_\-\-T\-I\-C\-K\-E\-R\-\_\-\-P\-R\-I\-O\-\_\-\-R\-E\-A\-L\-T\-I\-M\-E\label{group__mediastreamer2__ticker_ggad69f661f1db2a4e8cb6be3c160b282bcaf0a212318994b18993e9157562af148e}
+}]Topmost priority, running S\-C\-H\-E\-D\-\_\-\-F\-I\-F\-O on linux \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-new@{ms\-\_\-ticker\-\_\-new}}
+\index{ms\-\_\-ticker\-\_\-new@{ms\-\_\-ticker\-\_\-new}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Ticker}$\ast$ ms\-\_\-ticker\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga2d6dd1731d1afbb834b3d4279e7eca37}
+Create a ticker that will be used to start and stop a graph.
+
+Returns\-: M\-S\-Ticker $\ast$ if successfull, N\-U\-L\-L otherwise. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params@{ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params}}
+\index{ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params@{ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Ticker}$\ast$ ms\-\_\-ticker\-\_\-new\-\_\-with\-\_\-params (
+\begin{DoxyParamCaption}
+\item[{const M\-S\-Ticker\-Params $\ast$}]{params}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_gadc132fb8e3a778caa92ca67dd783e67e}
+Create a ticker that will be used to start and stop a graph.
+
+Returns\-: M\-S\-Ticker $\ast$ if successfull, N\-U\-L\-L otherwise. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-set\-\_\-name@{ms\-\_\-ticker\-\_\-set\-\_\-name}}
+\index{ms\-\_\-ticker\-\_\-set\-\_\-name@{ms\-\_\-ticker\-\_\-set\-\_\-name}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-set\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-ticker\-\_\-set\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga8ed311bdb3b31ded9a25436ce6329f01}
+Set a name to the ticker (used for logging) \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-set\-\_\-priority@{ms\-\_\-ticker\-\_\-set\-\_\-priority}}
+\index{ms\-\_\-ticker\-\_\-set\-\_\-priority@{ms\-\_\-ticker\-\_\-set\-\_\-priority}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-set\-\_\-priority}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-ticker\-\_\-set\-\_\-priority (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker, }
+\item[{M\-S\-Ticker\-Prio}]{prio}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga34a8a1e94532ee09c32c06d0655dfa9d}
+Deprecated\-: Set priority to the ticker \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-attach@{ms\-\_\-ticker\-\_\-attach}}
+\index{ms\-\_\-ticker\-\_\-attach@{ms\-\_\-ticker\-\_\-attach}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-attach}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-ticker\-\_\-attach (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker, }
+\item[{{\bf M\-S\-Filter} $\ast$}]{f}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga0ec886a8cab0d0463f1489bf5a3642a8}
+Attach a chain of filters to a ticker. The processing chain will be executed until ms\-\_\-ticker\-\_\-detach will be called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticker} & A \doxyref{M\-S\-Ticker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \\
+\hline
+{\em f} & A \doxyref{M\-S\-Filter}{p.}{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726} object.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if successfull, -\/1 otherwise. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-attach\-\_\-multiple@{ms\-\_\-ticker\-\_\-attach\-\_\-multiple}}
+\index{ms\-\_\-ticker\-\_\-attach\-\_\-multiple@{ms\-\_\-ticker\-\_\-attach\-\_\-multiple}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-attach\-\_\-multiple}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-ticker\-\_\-attach\-\_\-multiple (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker, }
+\item[{{\bf M\-S\-Filter} $\ast$}]{f, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_gafdeee14611103043a8faaf684995f09e}
+Attach a chain of filters to a ticker. The processing chain will be executed until ms\-\_\-ticker\-\_\-detach will be called. This variadic can be used to attach multiple chains in a single call. The argument list M\-U\-S\-T be N\-U\-L\-L terminated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticker} & A \doxyref{M\-S\-Ticker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \\
+\hline
+{\em f} & A \doxyref{M\-S\-Filter}{p.}{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726} object.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if successfull, -\/1 otherwise. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-detach@{ms\-\_\-ticker\-\_\-detach}}
+\index{ms\-\_\-ticker\-\_\-detach@{ms\-\_\-ticker\-\_\-detach}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-detach}]{\setlength{\rightskip}{0pt plus 5cm}int ms\-\_\-ticker\-\_\-detach (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker, }
+\item[{{\bf M\-S\-Filter} $\ast$}]{f}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_gad7ef87ce6e7b688849b9e660016135a7}
+Dettach a chain of filters to a ticker. The processing chain will no more be executed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticker} & A \doxyref{M\-S\-Ticker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \\
+\hline
+{\em f} & A \doxyref{M\-S\-Filter}{p.}{group__mediastreamer2__filter_ga696841ec9e8bd039974353d4630d9726} object.\\
+\hline
+\end{DoxyParams}
+Returns\-: 0 if successfull, -\/1 otherwise. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-destroy@{ms\-\_\-ticker\-\_\-destroy}}
+\index{ms\-\_\-ticker\-\_\-destroy@{ms\-\_\-ticker\-\_\-destroy}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-ticker\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga85fd41d44d64f35966af7c60e52adf10}
+Destroy a ticker.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticker} & A \doxyref{M\-S\-Ticker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \\
+\hline
+\end{DoxyParams}
+\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func@{ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func}}
+\index{ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func@{ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker, }
+\item[{{\bf M\-S\-Ticker\-Time\-Func}}]{func, }
+\item[{void $\ast$}]{user\-\_\-data}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga53ca75ed83740bc6827c399cfdfe231f}
+Override M\-S\-Ticker's time function. This can be used to control the ticker from an external time provider, for example the clock of a sound card. W\-A\-R\-N\-I\-N\-G\-: this must not be used in conjunction with \doxyref{ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func()}{p.}{group__mediastreamer2__ticker_gaad7d47bff07fac2629ce428d2d0354cd}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticker} & A \doxyref{M\-S\-Ticker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \\
+\hline
+{\em func} & A replacement method for calculating \char`\"{}current time\char`\"{} \\
+\hline
+{\em user\-\_\-data} & Any pointer to user private data. \\
+\hline
+\end{DoxyParams}
+\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func@{ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func}}
+\index{ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func@{ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-ticker\-\_\-set\-\_\-tick\-\_\-func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker, }
+\item[{{\bf M\-S\-Ticker\-Tick\-Func}}]{func, }
+\item[{void $\ast$}]{user\-\_\-data}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_gaad7d47bff07fac2629ce428d2d0354cd}
+Override M\-S\-Ticker's ticking function. This can be used to control the ticker from an external ticking source, for example an interrupt, an event on a file descriptor, etc. W\-A\-R\-N\-I\-N\-G\-: this must not be used in conjunction with \doxyref{ms\-\_\-ticker\-\_\-set\-\_\-time\-\_\-func()}{p.}{group__mediastreamer2__ticker_ga53ca75ed83740bc6827c399cfdfe231f}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticker} & A \doxyref{M\-S\-Ticker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \\
+\hline
+{\em func} & A replacement method waiting the next tick. \\
+\hline
+{\em user\-\_\-data} & Any pointer to user private data. \\
+\hline
+\end{DoxyParams}
+\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-print\-\_\-graphs@{ms\-\_\-ticker\-\_\-print\-\_\-graphs}}
+\index{ms\-\_\-ticker\-\_\-print\-\_\-graphs@{ms\-\_\-ticker\-\_\-print\-\_\-graphs}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-print\-\_\-graphs}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-ticker\-\_\-print\-\_\-graphs (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga6fd6a71595e7773136825d9de8afc204}
+Print on stdout all filters of a ticker. (I\-N\-T\-E\-R\-N\-A\-L\-: D\-O N\-O\-T U\-S\-E)
+
+
+\begin{DoxyParams}{Parameters}
+{\em ticker} & A \doxyref{M\-S\-Ticker}{p.}{group__mediastreamer2__ticker_ga5ab8bc4cd2b4c24418e06a3fc87a36d3} object. \\
+\hline
+\end{DoxyParams}
+\index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load@{ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load}}
+\index{ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load@{ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}float ms\-\_\-ticker\-\_\-get\-\_\-average\-\_\-load (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker} $\ast$}]{ticker}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_gafef4f65447ee08d7228de691d2a71f94}
+Get the average load of the ticker. It is expressed as the ratio between real time spent in processing all graphs for a tick divided by the tick interval (default is 10 ms). This value is averaged over several ticks to get consistent and useful value. A load greater than 100\% clearly means that the ticker is over loaded and runs late. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-synchronizer\-\_\-new@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-new}}
+\index{ms\-\_\-ticker\-\_\-synchronizer\-\_\-new@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-new}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-synchronizer\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-S\-Ticker\-Synchronizer}$\ast$ ms\-\_\-ticker\-\_\-synchronizer\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga5fd3dd62ea74ef10201c9a77be40db39}
+Create a ticker synchronizer.
+
+Returns\-: M\-S\-Ticker\-Synchronizer $\ast$ if successfull, N\-U\-L\-L otherwise. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time}}
+\index{ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}double ms\-\_\-ticker\-\_\-synchronizer\-\_\-set\-\_\-external\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker\-Synchronizer} $\ast$}]{ts, }
+\item[{const M\-S\-Time\-Spec $\ast$}]{time}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga29472fb895f5cd357db6b0b22f7a719a}
+Set the current external time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ts} & A \doxyref{M\-S\-Ticker\-Synchronizer}{p.}{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f} object. \\
+\hline
+{\em time} & A \#\-M\-S\-Time\-Spec object.\\
+\hline
+\end{DoxyParams}
+Returns\-: Average skew. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time}}
+\index{ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t ms\-\_\-ticker\-\_\-synchronizer\-\_\-get\-\_\-corrected\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker\-Synchronizer} $\ast$}]{ts}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_gaeb1bf4189504f130da3f849455fa53c4}
+Get the corrected current time following the set external times.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ts} & A \doxyref{M\-S\-Ticker\-Synchronizer}{p.}{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f} object.\\
+\hline
+\end{DoxyParams}
+Returns\-: A corrected current time. \index{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}!ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy}}
+\index{ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy@{ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy}!Ticker API - Manage mediastreamer2 graphs@{Ticker A\-P\-I -\/ Manage mediastreamer2 graphs}}
+\subsubsection[{ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}void ms\-\_\-ticker\-\_\-synchronizer\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-S\-Ticker\-Synchronizer} $\ast$}]{ts}
+\end{DoxyParamCaption}
+)}\label{group__mediastreamer2__ticker_ga4e4045a23f39743e8c2f4afcb476e5b8}
+Destroy a ticker synchronizer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ts} & A \doxyref{M\-S\-Ticker\-Synchronizer}{p.}{group__mediastreamer2__ticker_gaeb889a566dbb5b135239177cb08bed1f} object. \\
+\hline
+\end{DoxyParams}
